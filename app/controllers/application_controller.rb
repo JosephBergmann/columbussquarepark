@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+    # include ActionController::RequestForgeryProtection
+
+    protect_from_forgery with: :null_session
+    rescue_from StandardError, with: :unhandled_error
+    rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_authenticity_token
+
     before_action :snake_case_params
     before_action :attach_authenticity_token
 
@@ -28,7 +34,7 @@ class ApplicationController < ActionController::Base
 
     def require_logged_out
         if logged_in?
-            render :json {errors: ['User must be logged out']}, status: :unauthorized
+            render json: {errors: ['User must be logged out']}, status: :unauthorized
         end
     end
     private 
@@ -45,4 +51,15 @@ class ApplicationController < ActionController::Base
         render json: {message: 'Invalid authenticity token'}, status: :unprocessable_entity
     end
 
+    def unhandled_error(error)
+        if request.accepts.first.html?
+          raise error
+        else
+          @message = "#{error.class} - #{error.message}"
+          @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
+          render 'api/errors/internal_server_error', status: :internal_server_error
+          
+          logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
+        end
+      end
 end

@@ -6,8 +6,12 @@ class Api::UsersController < ApplicationController
 
         if @user.save
             login(@user)
+            render :show
         end
 
+    end
+
+    def show
     end
 
     def destroy

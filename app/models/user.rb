@@ -24,8 +24,9 @@ class User < ApplicationRecord
 
     
     def reset_session_token!
+        debugger
         self.session_token = generate_unique_session_token
-        save!
+        self.save!
         session_token
     end
 
