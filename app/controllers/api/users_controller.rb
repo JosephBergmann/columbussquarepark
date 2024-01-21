@@ -1,8 +1,12 @@
-class Api::UserController < ApplicationController
+class Api::UsersController < ApplicationController
 
     before_action :require_logged_in, only: [:create, :update]
     def create
+        @user = User.new(user_params)
 
+        if @user.save
+            login(@user)
+            
     end
 
     def destroy
