@@ -6,7 +6,8 @@ class Api::UsersController < ApplicationController
 
         if @user.save
             login(@user)
-            
+        end
+
     end
 
     def destroy
