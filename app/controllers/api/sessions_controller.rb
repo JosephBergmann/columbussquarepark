@@ -21,9 +21,8 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
+        logout
+        render json: {message: 'logout successful'}
     end
 
-    private
-    def user_params 
-    end
 end
