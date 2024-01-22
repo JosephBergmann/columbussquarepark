@@ -1104,3 +1104,635 @@ Did you mean?  api/user/show
                layouts/application):
   
 app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:09:04 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 6461ms (ActiveRecord: 3.0ms | Allocations: 228982)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/user/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:10:40 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 3822ms (ActiveRecord: 8.4ms | Allocations: 232690)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:10:56 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 3183ms (ActiveRecord: 18.2ms | Allocations: 232525)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:11:07 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 4474ms (ActiveRecord: 6.9ms | Allocations: 233605)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:11:24 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 3371ms (ActiveRecord: 14.5ms | Allocations: 122849)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:12:09 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 5.6ms | Allocations: 10912)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:61:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:12:14 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 1.2ms | Allocations: 7121)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:61:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:14:37 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (9.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 216350ms (ActiveRecord: 22.1ms | Allocations: 125365)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:61:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:18:17 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 500 Internal Server Error in 5525ms (ActiveRecord: 15.4ms | Allocations: 123637)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:61:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:19:00 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:29:in `reset_session_token!'
+Completed 200 OK in 9364ms (Views: 3.1ms | ActiveRecord: 6.3ms | Allocations: 462017)
+
+
+Started DELETE "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:21:05 -0500
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 2876)
+
+
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:21:15 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 2.1ms | Allocations: 958)
+Completed 500 Internal Server Error in 28090ms (ActiveRecord: 4.1ms | Allocations: 128691)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:61:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:22:08 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.2ms | Allocations: 929)
+Completed 500 Internal Server Error in 8852ms (ActiveRecord: 12.3ms | Allocations: 123719)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:22:56 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+Completed 500 Internal Server Error in 2949ms (ActiveRecord: 6.9ms | Allocations: 125867)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:23:08 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.9ms | Allocations: 929)
+Completed 500 Internal Server Error in 2841ms (ActiveRecord: 4.1ms | Allocations: 123808)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:24:40 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.7ms | Allocations: 929)
+Completed 500 Internal Server Error in 2387ms (ActiveRecord: 7.0ms | Allocations: 123614)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:25:10 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+Completed 500 Internal Server Error in 4273ms (ActiveRecord: 6.8ms | Allocations: 123689)
+
+
+  
+ActionView::MissingTemplate (Missing template api/errors/internal_server_error with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/josephbergmann/Documents/hackathon2024/TestTest/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.5.0/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.8/app/views"
+  * "/Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.8/app/views"
+
+Did you mean?  api/users/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/rails/conductor):
+  
+app/controllers/application_controller.rb:60:in `unhandled_error'
+Started POST "/api/session?email=admin@joe.com&password=[FILTERED]" for ::1 at 2024-01-21 02:26:37 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email"=>"admin@joe.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@joe.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_by_credentials'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@joe.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:28:in `reset_session_token!'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.0ms | Allocations: 191)
+Completed 200 OK in 2343ms (Views: 5.7ms | ActiveRecord: 5.9ms | Allocations: 122066)
+
+
