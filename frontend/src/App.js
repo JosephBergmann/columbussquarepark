@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home'; // Assuming Home.js is in the same directory
+import './App.css'
+import Home from './components/Home';
 
 const App = () => {
     return (
