@@ -13,28 +13,28 @@ export default function Navigation() {
             <div className='hidden md:flex w-full p-8 gap-5'>
                 <img src={logo} className='h-36'/>
 
-                <div className='flex flex-col justify-between gap-1 w-full'>
-                    <div className='flex content-end h-2/3'>
-                        <div className='ml-auto flex justify-center font-serif font-bold text-5xl w-100'>
+                <div className='flex flex-col justify-center w-full gap-3'>
+                    <div className='flex content-end'>
+                        <div className='grow text-center font-serif font-bold md:text-5xl'>
                             Columbus Square Park
                         </div>
-                        <h2 className='w-1/4 text-right'>
-                            Sign In
-                        </h2>
+                        <button className='grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3'>
+                            <i class="fa-regular fa-circle-question"></i>
+                        </button>
                     </div>
-                    <div className="flex justify-evenly w-full space-x-4 bg-lime-800 p-1 h-1/3">
-                        <Link to="/" className="text-white">Home</Link>
-                        <Link to="/about" className="text-white">About</Link>
-                        <Link to="/events" className="text-white">Events</Link>
-                        <Link to="/programs" className="text-white">Programs</Link>
-                        <Link to="/gallery" className="text-white">Gallery</Link>
-                        <Link to="/contact" className="text-white">Contact</Link>
+                    <div className="flex justify-evenly content-center w-full space-x-4 bg-lime-800">
+                        <Link to="/" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Home</Link>
+                        <Link to="/about" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">About</Link>
+                        <Link to="/events" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Events</Link>
+                        <Link to="/programs" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Programs</Link>
+                        <Link to="/gallery" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Gallery</Link>
+                        <Link to="/contact" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Contact</Link>
                     </div>
                 </div>
             </div>
 
             {/* Mobile */}
-            <div className="md:hidden container mx-auto flex justify-between items-center bg-lime-800 p-4"> 
+            <div className="md:hidden container mx-auto flex justify-between items-center bg-lime-800 w-100 p-4">
                 <Link to="/" className="md:hidden text-white text-lg font-bold min-h-min">
                     <MobileLogo />
                 </Link>
