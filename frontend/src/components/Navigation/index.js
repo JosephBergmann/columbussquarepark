@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Transition } from '@headlessui/react';
+import { Menu, Transition } from '@headlessui/react';
 import MobileLogo from './mobile-logo';
 import logo from './csp-logo.gif'
 
@@ -13,7 +13,7 @@ export default function Navigation() {
             <div className='hidden md:flex w-full p-8 gap-5'>
                 <img src={logo} className='h-36'/>
 
-                <div className='flex flex-col justify-center w-full gap-3'>
+                <div className='flex flex-col justify-end w-full gap-3 h-100'>
                     <div className='flex content-end'>
                         <div className='grow text-center font-serif font-bold md:text-5xl'>
                             Columbus Square Park
@@ -22,49 +22,70 @@ export default function Navigation() {
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
-                    <div className="flex justify-evenly content-center w-full space-x-4 bg-lime-800">
-                        <Link to="/" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Home</Link>
-                        <Link to="/about" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">About</Link>
-                        <Link to="/events" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Events</Link>
-                        <Link to="/programs" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Programs</Link>
-                        <Link to="/gallery" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Gallery</Link>
-                        <Link to="/contact" className="grow m- 0 text-center text-white hover:bg-lime-900 p-2">Contact</Link>
+                    <div className="flex justify-evenly content-center w-full space-x-4 bg-green-900">
+                        <Link to="/" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Home</Link>
+                        <Link to="/about" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">About</Link>
+                        <Link to="/events" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Events</Link>
+                        {/* <Link to="/programs" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Programs</Link> */}
+                        <Link to="/gallery" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Gallery</Link>
+                        <Link to="/contact" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Contact</Link>
                     </div>
                 </div>
             </div>
 
             {/* Mobile */}
-            <div className="md:hidden container mx-auto flex justify-between items-center bg-lime-800 w-100 p-4">
+            <div className="md:hidden container flex justify-between items-center bg-green-900 w-screen p-4">
                 <Link to="/" className="md:hidden text-white text-lg font-bold min-h-min">
                     <MobileLogo />
                 </Link>
 
                 {/* Hamburger Icon - Mobile */}
                 <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                {/* Modal - Mobile */}
-                <Transition show={isOpen} enter="transition-opacity duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="transition-opacity duration-300" leaveFrom="opacity-100" leaveTo="opacity-0">
-                    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
-                        <div className="bg-white p-4 rounded">
-                            <button onClick={() => setIsOpen(false)} className="absolute top-2 right-2 text-gray-700">
+                    <Menu as="div" className="relative inline-block text-left">
+                        <div>
+                            <Menu.Button onClick={() => setIsOpen(!isOpen)} className="bg-green-900 text-white rounded-lg focus:bg-green-950 p-3">
                                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                                 </svg>
-                            </button>
-                            {/* Modal Content - Add links here */}
-                            <Link to="/" className="block text-gray-800 py-2">Home</Link>
-                            <Link to="/about" className="block text-gray-800 py-2">About</Link>
-                            <Link to="/contact" className="block text-gray-800 py-2">Contact</Link>
-                            {/* Add more links as needed */}
+                            </Menu.Button>
                         </div>
-                    </div>
-                </Transition>
+                        <Transition
+                            as={Fragment}
+                            // enter="transition ease-out duration-100"
+                            // enterFrom="transform opacity-0 scale-95"
+                            // enterTo="transform opacity-100 scale-100"
+                            // leave="transition ease-in duration-75"
+                            // leaveFrom="transform opacity-100 scale-100"
+                            // leaveTo="transform opacity-0 scale-95"
+                            enter="transition ease-out duration-300 transform"
+                            enterFrom="opacity-0 -translate-y-full scale-95"
+                            enterTo="opacity-100 translate-y-0 scale-100"
+                            leave="transition ease-in duration-200 transform"
+                            leaveFrom="opacity-100 translate-y-0 scale-100"
+                            leaveTo="opacity-0 -translate-y-full scale-95"
+                        >
+                            <Menu.Items className="fixed top-0 right-0 mt-2 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
+                                <div className='flex flex-col'>
+                                    <Menu.Item>
+                                        <Link to="/" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Home</Link>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <Link to="/about" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">About</Link>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <Link to="/events" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Events</Link>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <Link to="/gallery" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Gallery</Link>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <Link to="/contact" className="py-3 text-center text-green-900 focus:bg-slate-200">Contact</Link>
+                                    </Menu.Item>
+                                </div>
+                            </Menu.Items>
+                        </Transition>
+                    </Menu>
+                </div>
             </div>
         </div>
     )
