@@ -6,27 +6,31 @@ import GalleryPreview from './GalleryPreview'
 
 export default function Home() {
 
+    const subHeaderClass = 'text-align-center tracking-widest xxs:text-lg xs:text-lg sm:text-xl md:text-2xl lg:w-3xl xl:4xl'
+
     return (
         <>
-            <div class="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${parkPhoto})` }}>
+            <div class="bg-cover bg-center min-h-96" style={{ backgroundImage: `url(${parkPhoto})` }}>
             </div>
             <div className='flex items-center justify-around gap-20 my-10'>
                 <div className='flex flex-col items-center'>
-                    <span>Learn about the park</span>
-                    <img className="sm:w-20 md:w-36 lg:w-52 xl:w-70" src={lightbuld}/>
+                    <span className={subHeaderClass} >Learn about the park</span>
+                    <img className="sm:w-10 md:w-16 lg:w-20 xl:w-32" src={lightbuld}/>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <span>How to help</span>
-                    <img className="sm:w-20 md:w-36 lg:w-52 xl:w-70" src={shovel}/>
+                    <span className={subHeaderClass} >How to help</span>
+                    <img className="sm:w-10 md:w-16 lg:w-20 xl:w-32" src={shovel}/>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <span>Upcoming Events</span>
-                    <img className="sm:w-20 md:w-36 lg:w-52 xl:w-70" src={calendar}/>
+                    <span className={subHeaderClass} >Upcoming Events</span>
+                    <img className="sm:w-10 md:w-16 lg:w-20 xl:w-32" src={calendar}/>
                 </div>
             </div>
-            <div className=''>
-                <span>View our gallery</span>
-                <GalleryPreview />
+            <div className='flex flex-col gap-4 mx-6 items-center'>
+                <span className={subHeaderClass}>View our gallery</span>
+                <div className='flex justify-around gap-6'>
+                    <GalleryPreview />
+                </div>
             </div>
         </>
     )

@@ -10,15 +10,17 @@ import img7 from './gallery_images/image_7.jpeg'
 
 export default function GalleryPreview() {
 
-    [img1, img2, img3, img4, img5, img6, img7].map(image => {
+    const imageMap = [img1, img2, img3, img4, img5, img6, img7].map(image => {
         return (
+            <>
             <ImageCard image={image}/>
+            </>
         )
     })
 
     return (
         <>
-
+            {imageMap}
         </>
     )
 }
