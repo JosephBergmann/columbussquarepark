@@ -24,7 +24,7 @@ export default function Navigation() {
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
-                    <div className="flex justify-evenly content-center w-full space-x-4 bg-green-900">
+                    <div className="flex justify-evenly content-center w-full space-x-4 bg-green-900 rounded-md">
                         <Link to="/" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Home</Link>
                         <Link to="/about" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">About</Link>
                         <Link to="/events" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Events</Link>
