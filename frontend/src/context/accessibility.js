@@ -2,11 +2,11 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AccessibilityContext = createContext();
 
-export function MarketsProvider({children}) {
-    const [toggleAccessibility, setToggleAccessibility] = useState(false);
+export function AccessibilityProvider({children}) {
+    const [showAccessibility, setShowAccessibility] = useState(false);
 
     return (
-        <AccessibilityContext.Provider value={{ toggleAccessibility, setToggleAccessibility }}>
+        <AccessibilityContext.Provider value={{ showAccessibility, setShowAccessibility }}>
             {children}
         </AccessibilityContext.Provider>
     );

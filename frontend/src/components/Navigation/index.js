@@ -2,12 +2,14 @@ import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import MobileLogo from './mobile-logo';
-import logo from './csp-logo.gif'
+import logo from './csp-logo.gif';
+import { useAccessibility } from '../../context/accessibility';
+import AccessibilityModal from '../AccessibilityModal';
 
 export default function Navigation() {
     const [openMobileNav, setOpenMobileNav] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
-
+    const {showAccessibility, setShowAccessibility} = useAccessibility()
 
     return (
         <div>
@@ -20,7 +22,7 @@ export default function Navigation() {
                         <div className='grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl'>
                             Columbus Square Park
                         </div>
-                        <button className='grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3'>
+                        <button onClick={() => setShowAccessibility(true)} className='grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3'>
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
@@ -59,6 +61,8 @@ export default function Navigation() {
                         <Link to="/contact" className="grow m- 0 text-center hover:bg-teal-500 p-2">Contact</Link>
                     </div>
                 </div>
+
+                {showAccessibility && <AccessibilityModal />}
             </div>
 
             {/* Mobile */}

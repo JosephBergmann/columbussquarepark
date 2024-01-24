@@ -19,19 +19,14 @@ import { AccessibilityProvider } from "./context/accessibility.js"
 // 	);
 // }
 
-function Root() {
-  return (
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <React.StrictMode>
     <AccessibilityProvider>
       <App />
     </AccessibilityProvider>
-  )
-}
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 
