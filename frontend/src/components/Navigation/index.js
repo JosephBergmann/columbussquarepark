@@ -15,7 +15,7 @@ export default function Navigation() {
             <div className='fixed top-0 hidden md:flex w-full p-8 gap-5 bg-white/95'>
                 <img src={logo} className='h-32'/>
 
-                <div className='flex flex-col justify-end w-full gap-3 h-100'>
+                <div className='flex flex-col justify-end w-full gap-5 h-100'>
                     <div className='flex content-end'>
                         <div className='grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl'>
                             Columbus Square Park

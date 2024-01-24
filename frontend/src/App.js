@@ -9,7 +9,7 @@ const App = () => {
     return (
         <Router>
             <Navigation />
-            <div className='flex-grow md:pt-48 md:px-8'>
+            <div className='flex-grow md:pt-48 md:px-32'>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     {/* Other routes can be added here */}
