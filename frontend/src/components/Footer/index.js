@@ -18,7 +18,7 @@ export default function Footer() {
                     <h2 className='text-yellow-300 text-2xl font-newspaper'>Related Links</h2>
                     <div className='text-white flex flex-col'>
                         <Link to="https://www.phila.gov/departments/philadelphia-parks-recreation/" className='hover:underline'>Philadelphia Parks & Recreation</Link>
-                        <Link to="https://www.facebook.com/groups/241921246469738/" className='hover:underline'>South Philadelphia Association of Dog Owners (SPDOA)</Link>
+                        <Link to="https://www.facebook.com/groups/241921246469738/" className='hover:underline'>South Philadelphia Dog Owners Association (SPDOA)</Link>
                         <Link to="https://www.drpipes.com/pa/philadelphia.html" className='hover:underline'>Plumbers Near Philadelphia</Link>
                     </div>
                 </div>

@@ -24,13 +24,39 @@ export default function Navigation() {
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
-                    <div className="flex justify-evenly content-center w-full space-x-4 bg-green-900 rounded-md">
-                        <Link to="/" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Home</Link>
-                        <Link to="/about" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">About</Link>
-                        <Link to="/events" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Events</Link>
-                        {/* <Link to="/programs" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Programs</Link> */}
-                        <Link to="/gallery" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Gallery</Link>
-                        <Link to="/contact" className="grow m- 0 text-center text-white hover:bg-green-800 p-2">Contact</Link>
+                    <div className="flex justify-evenly content-center w-full space-x-4 bg-main rounded-md">
+                        <Link to="/" className="grow m- 0 text-center hover:bg-teal-500 p-2">Home</Link>
+                        <Link to="/about" className="grow m- 0 text-center hover:bg-teal-500 p-2">About</Link>
+                        {/* <Menu as="div" className="grow m- 0 text-center hover:bg-teal-500 p-2">
+                            <Menu.Button onClick={() => setOpenAbout(!openAbout)} className="">About</Menu.Button>
+                            <Transition
+                                as={Fragment}
+                                // enter="transition ease-out duration-100"
+                                // enterFrom="transform opacity-0 scale-95"
+                                // enterTo="transform opacity-100 scale-100"
+                                // leave="transition ease-in duration-75"
+                                // leaveFrom="transform opacity-100 scale-100"
+                                // leaveTo="transform opacity-0 scale-95"
+                            >
+                                <Menu.Items className="mt-2 w-inherit origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5">
+                                    <div>
+                                        <Menu.Item>
+                                            <Link to="" className=''></Link>
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            <Link to="" className=''></Link>
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            <Link to="" className=''></Link>
+                                        </Menu.Item>
+                                    </div>
+                                </Menu.Items>
+                            </Transition>
+                        </Menu> */}
+                        <Link to="/events" className="grow m- 0 text-center hover:bg-teal-500 p-2">Events</Link>
+                        {/* <Link to="/programs" className="grow m- 0 text-center hover:bg-teal-500 p-2">Programs</Link> */}
+                        <Link to="/gallery" className="grow m- 0 text-center hover:bg-teal-500 p-2">Gallery</Link>
+                        <Link to="/contact" className="grow m- 0 text-center hover:bg-teal-500 p-2">Contact</Link>
                     </div>
                 </div>
             </div>

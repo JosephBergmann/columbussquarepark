@@ -7,7 +7,10 @@ module.exports = {
     extend: {
       fontFamily: {
         'newspaper': ['Cinzel', 'serif']
-      }
+      },
+      colors: {
+        'main': '#ACD2BD',
+      },
     },
   },
   plugins: [],
