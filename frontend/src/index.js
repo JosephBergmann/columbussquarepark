@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import { AccessibilityProvider } from "./context/accessibility.js"
 
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
@@ -18,11 +19,19 @@ import { BrowserRouter } from "react-router-dom";
 // 	);
 // }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+function Root() {
+  return (
+    <AccessibilityProvider>
+      <App />
+    </AccessibilityProvider>
+  )
+}
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Root />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 

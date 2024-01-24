@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <div className="w-full bg-green-900">
-            <div className='flex justify-center gap-10 px-8 py-12'>
+            <div className='flex flex-col md:flex-row justify-center gap-10 px-8 py-12'>
                 <div className='flex flex-col max-w-80 gap-3 px-3'>
                     <h2 className='text-yellow-300 text-2xl font-newspaper'>About</h2>
                     <p className='text-white pr-3'>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
