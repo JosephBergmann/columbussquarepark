@@ -5,17 +5,19 @@ import MobileLogo from './mobile-logo';
 import logo from './csp-logo.gif'
 
 export default function Navigation() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [openMobileNav, setOpenMobileNav] = useState(false);
+    const [openAbout, setOpenAbout] = useState(false);
+
 
     return (
         <div>
             {/* Desktop */}
-            <div className='hidden md:flex w-full p-8 gap-5'>
-                <img src={logo} className='h-36'/>
+            <div className='fixed top-0 hidden md:flex w-full p-8 gap-5 bg-white/95'>
+                <img src={logo} className='h-32'/>
 
                 <div className='flex flex-col justify-end w-full gap-3 h-100'>
                     <div className='flex content-end'>
-                        <div className='grow text-center font-serif font-bold md:text-5xl'>
+                        <div className='grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl'>
                             Columbus Square Park
                         </div>
                         <button className='grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3'>
@@ -43,7 +45,7 @@ export default function Navigation() {
                 <div className="md:hidden">
                     <Menu as="div" className="relative inline-block text-left">
                         <div>
-                            <Menu.Button onClick={() => setIsOpen(!isOpen)} className="bg-green-900 text-white rounded-lg focus:bg-green-950 p-3">
+                            <Menu.Button onClick={() => setOpenMobileNav(!openMobileNav)} className="bg-green-900 text-white rounded-lg focus:bg-green-950 p-3">
                                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                                 </svg>
