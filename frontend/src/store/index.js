@@ -2,14 +2,18 @@ import {configureStore, applyMiddleware } from '@reduxjs/toolkit'
 import sessionReducer from './session'
 import imageReducer from './images'
 import eventReducer from './events'
+import galleryReducer from './gallery'
+import allDataReducer from './allData'
 import { thunk } from 'redux-thunk'
 import logger from 'redux-logger'
 
 const store = configureStore({
     reducer: {
         session: sessionReducer,
+        allData: allDataReducer,
+        gallery: galleryReducer,
+        events: eventReducer,
         images: imageReducer,
-        events: eventReducer
     },
     middleware: (getDefaultMiddleware) => {
         if (process.env.NODE_ENV === 'production') {

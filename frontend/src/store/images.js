@@ -17,12 +17,12 @@ export const addImage = createAsyncThunk(
                     image
                 })
             })
-            if (response.ok) {
-                data = await res.json()
+            if (res.ok) {
+                const data = await res.json()
                 return data
             }
         } catch (err) {
-            data = await err.json()
+            const data = await err.json()
             return data
         }
     }
@@ -35,12 +35,12 @@ export const removeImage = createAsyncThunk(
             const res = await fetch("", {
                 method: "DELETE",
             })
-            if (response.ok) {
-                data = await res.json()
+            if (res.ok) {
+                const data = await res.json()
                 return data
             }
         } catch (err) {
-            data = await err.json()
+            const data = await err.json()
             return data
         }
     }

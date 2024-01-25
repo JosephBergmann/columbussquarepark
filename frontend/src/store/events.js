@@ -17,12 +17,12 @@ export const addEvent = createAsyncThunk(
                     event
                 })
             })
-            if (response.ok) {
-                data = await res.json()
+            if (res.ok) {
+                const data = await res.json()
                 return data
             }
         } catch (err) {
-            data = await err.json()
+            const data = await err.json()
             return data
         }
     }
@@ -41,12 +41,12 @@ export const updateEvent = createAsyncThunk(
                     event
                 })
             })
-            if (response.ok) {
-                data = await res.json()
+            if (res.ok) {
+                const data = await res.json()
                 return data
             }
         } catch (err) {
-            data = await err.json()
+            const data = await err.json()
             return data
         }
     }
@@ -59,12 +59,12 @@ export const removeEvent = createAsyncThunk(
             const res = await fetch("", {
                 method: "DELETE",
             })
-            if (response.ok) {
-                data = await res.json()
+            if (res.ok) {
+                const data = await res.json()
                 return data
             }
         } catch (err) {
-            data = await err.json()
+            const data = await err.json()
             return data
         }
     }
