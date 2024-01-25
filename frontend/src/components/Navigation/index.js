@@ -97,7 +97,7 @@ export default function Navigation() {
                             leaveTo="opacity-0 -translate-y-full scale-95"
                         >
                             <Menu.Items className="fixed top-0 right-0 mt-2 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
-                                <div className='flex flex-col'>
+                                <div className='flex flex-col p-2'>
                                     <Menu.Item>
                                         <Link to="/" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Home</Link>
                                     </Menu.Item>
@@ -111,7 +111,12 @@ export default function Navigation() {
                                         <Link to="/gallery" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Gallery</Link>
                                     </Menu.Item>
                                     <Menu.Item>
-                                        <Link to="/contact" className="py-3 text-center text-green-900 focus:bg-slate-200">Contact</Link>
+                                        <Link to="/contact" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Contact</Link>
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        <button onClick={() => setShowAccessibility(true)} className="py-3 text-center text-green-900 focus:bg-slate-200">
+                                            Accessibility
+                                        </button>
                                     </Menu.Item>
                                 </div>
                             </Menu.Items>
