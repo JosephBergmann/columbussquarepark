@@ -11,7 +11,7 @@ const imageSlice = createSlice({
         addImage: (state, action) => {
             state.images[action.payload.id] = action.payload
         },
-        removeImage: (state) => {
+        removeImage: (state, action) => {
             delete state.images[action.payload.id]
         }
     }
