@@ -9,7 +9,10 @@ module.exports = {
         'newspaper': ['Cinzel', 'serif']
       },
       colors: {
-        'main': '#ACD2BD',
+        'fun': '#6CBD91',
+        'primary': '#A0CB1',
+        'secondary': '#ACD2BD',
+        // 'tertiary': '#ACD2BD',
       },
     },
   },
