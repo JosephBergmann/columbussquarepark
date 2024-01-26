@@ -8,16 +8,15 @@ const initialState = {
 export const fetchAll = createAsyncThunk(
     'allData/getAllData',
     async (thunkAPI) => {
-        try {
-            const res = await fetch("/api/getAllData")
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        const res = await fetch("/api/getAllData")
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
+
     }
 )
 

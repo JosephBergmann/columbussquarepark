@@ -1,28 +1,23 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
-const initialState = {
-    events: {}
-}
 
 export const addEvent = createAsyncThunk(
     'events/add',
     async (event, thunkAPI) => {
-        try {
-            const res = await fetch("", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    event
-                })
+        const res = await fetch("", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                event
             })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }
@@ -31,40 +26,37 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'events/update',
     async (event, thunkAPI) => {
-        try {
-            const res = await fetch("", {
-                method: "UPDATE",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    event
-                })
+        const res = await fetch("", {
+            method: "UPDATE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                event
             })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
+
     }
 )
 
 export const removeEvent = createAsyncThunk(
     'events/remove',
     async (event, thunkAPI) => {
-        try {
-            const res = await fetch("", {
-                method: "DELETE",
-            })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        const res = await fetch("", {
+            method: "DELETE",
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }
@@ -72,7 +64,7 @@ export const removeEvent = createAsyncThunk(
 
 const eventSlice = createSlice({
     name: 'events',
-    initialState,
+    initialState: {},
     reducers: {
         // addEvent: (state, action) => {
         //     state.events[action.payload.id] = action.payload

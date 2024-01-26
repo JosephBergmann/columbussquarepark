@@ -1,28 +1,26 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
-const initialState = {
-    images: {}
-}
+// const initialState = {
+//     images: {}
+// }
 
 export const addImage = createAsyncThunk(
     'images/add',
     async (image, thunkAPI) => {
-        try {
-            const res = await fetch("", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    image
-                })
+        const res = await fetch("", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                image
             })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }
@@ -31,16 +29,14 @@ export const addImage = createAsyncThunk(
 export const removeImage = createAsyncThunk(
     'images/remove',
     async (image, thunkAPI) => {
-        try {
-            const res = await fetch("", {
-                method: "DELETE",
-            })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        const res = await fetch("", {
+            method: "DELETE",
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }
@@ -48,7 +44,7 @@ export const removeImage = createAsyncThunk(
 
 const imageSlice = createSlice({
     name: 'images',
-    initialState,
+    initialState: {},
     reducers: {
         // addImage: (state, action) => {
         //     state.images[action.payload.id] = action.payload

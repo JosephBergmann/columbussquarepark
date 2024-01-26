@@ -7,14 +7,14 @@ const initialState = {
 export const authenticate = createAsyncThunk(
     'session/authenticate',
     async (thunkAPI) => {
-        try {
-            const res = await fetch("/api/session")
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        const res = await fetch("/api/session")
+        console.log('res', res)
+        if (res.ok) {
+            console.log('fetched')
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }
@@ -22,24 +22,22 @@ export const authenticate = createAsyncThunk(
 
 export const login = createAsyncThunk(
     'session/login',
-    async (thunkAPI) => {
-        try {
-            const res = await fetch("/api/session", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                })
+    async (credentials, thunkAPI) => {
+        const res = await fetch("/api/session", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: credentials.email,
+                password: credentials.password,
             })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }
@@ -48,16 +46,14 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk(
     'session/logout',
     async (thunkAPI) => {
-        try {
-            const res = await fetch("/api/session", {
-                method: "DELETE"
-            })
-            if (res.ok) {
-                const data = await res.json()
-                return data
-            }
-        } catch (err) {
-            const data = await err.json()
+        const res = await fetch("/api/session", {
+            method: "DELETE"
+        })
+        if (res.ok) {
+            const data = await res.json()
+            return data
+        } else {
+            const data = await res.json()
             return data
         }
     }

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
 const initialState = {
-    galleryImageIds: []
+    imageIds: []
 }
 
 const gallerySlice = createSlice({
@@ -11,19 +11,19 @@ const gallerySlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase('allData/getAllData', (state, action) => {
-            state.galleryImageIds = action.payload.galleryImageIds
+            state.imageIds = action.payload.imageIds
         });
 
         builder.addCase('images/add', (state, action) => {
             if (action.payload.gallery === true){
-                state.galleryImageIds.push(action.payload.id)
+                state.imageIds.push(action.payload.id)
             }
         });
 
         builder.addCase('images/remove', (state, action) => {
-            const index = state.galleryImageIds.indexOf(action.payload)
+            const index = state.imageIds.indexOf(action.payload)
             if (index !== -1) {
-                state.galleryImageIds.splice(index, 1)
+                state.imageIds.splice(index, 1)
             }
         })
     }
