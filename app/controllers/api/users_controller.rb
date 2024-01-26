@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
             login(@user)
             render :show
         end
-
     end
 
     def show
