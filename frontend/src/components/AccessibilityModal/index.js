@@ -52,7 +52,7 @@ export default function AccessibilityModal() {
                                         checked={darkMode}
                                         onChange={() => setDarkMode(!darkMode)}
                                         className={`${
-                                            darkMode ? 'bg-main' : 'bg-gray-300'
+                                            darkMode ? 'bg-secondary' : 'bg-gray-300'
                                         } relative inline-flex h-6 w-10 items-center rounded-full`}
                                         >
                                         <span className="sr-only">Enable notifications</span>
@@ -71,7 +71,7 @@ export default function AccessibilityModal() {
                                                 <Tab as={Fragment}>
                                                     {({ selected}) => (
                                                             <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-main' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
+                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-secondary' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
                                                                 onClick={() => setTextSize('base')}
                                                             >
                                                                 Normal
@@ -81,7 +81,7 @@ export default function AccessibilityModal() {
                                                 <Tab as={Fragment}>
                                                     {({ selected}) => (
                                                             <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-main' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
+                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-secondary' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
                                                                 onClick={() => setTextSize('lg')}
                                                             >
                                                                 Large
@@ -112,7 +112,7 @@ export default function AccessibilityModal() {
                                     </div> */}
                                 </div>
                                 <div className='w-full flex justify-center'>
-                                    <button className='mt-10 py-3 px-8 bg-main rounded-xl active:bg-gray-300'>
+                                    <button className='mt-10 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
                                         Confirm
                                     </button>
                                 </div>

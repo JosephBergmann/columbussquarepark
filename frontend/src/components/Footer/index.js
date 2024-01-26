@@ -8,8 +8,8 @@ export default function Footer() {
 
 
     return (
-        <div className="w-full bg-main">
-            <div className='flex flex-col md:flex-row justify-center gap-32 px-8 py-12'>
+        <div className="w-full bg-primary">
+            <div className='flex flex-col md:flex-row justify-center gap-16 md:gap-32 px-8 py-12'>
                 {/* <div className='flex flex-col max-w-80 gap-3 px-3'>
                     <h2 className='text-yellow-300 text-2xl font-newspaper'>About</h2>
                     <p className='text-white pr-3'>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
@@ -39,9 +39,11 @@ export default function Footer() {
                         <Link to="https://www.drpipes.com/pa/philadelphia.html" className='mb-2 hover:underline'>Plumbers Near Philadelphia</Link>
                     </div>
                 </div>
-                <div className='flex flex-col gap-3 px3'>
+                <div className='flex flex-col gap-3 px-3'>
                     <h2 className='text-2xl font-newspaper'>Admin</h2>
-                    <button className='py-3 px-8 bg-green-700 text-white rounded-xl active:bg-gray-300'>Log In</button>
+                    <button className='py-2 px-4 md:px-8 bg-fun text-white rounded-xl border border-fun active:bg-secondary active:border active:border-white'>
+                        Log in
+                    </button>
                 </div>
             </div>
         </div>

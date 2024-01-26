@@ -26,9 +26,9 @@ export default function Navigation() {
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
-                    <div className="flex justify-evenly content-center w-full space-x-4 bg-main rounded-md">
-                        <Link to="/" className="grow m- 0 text-center hover:bg-teal-500 p-2">Home</Link>
-                        <Link to="/about" className="grow m- 0 text-center hover:bg-teal-500 p-2">About</Link>
+                    <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md">
+                        <Link to="/" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Home</Link>
+                        <Link to="/about" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">About</Link>
                         {/* <Menu as="div" className="grow m- 0 text-center hover:bg-teal-500 p-2">
                             <Menu.Button onClick={() => setOpenAbout(!openAbout)} className="">About</Menu.Button>
                             <Transition
@@ -55,10 +55,10 @@ export default function Navigation() {
                                 </Menu.Items>
                             </Transition>
                         </Menu> */}
-                        <Link to="/events" className="grow m- 0 text-center hover:bg-teal-500 p-2">Events</Link>
-                        {/* <Link to="/programs" className="grow m- 0 text-center hover:bg-teal-500 p-2">Programs</Link> */}
-                        <Link to="/gallery" className="grow m- 0 text-center hover:bg-teal-500 p-2">Gallery</Link>
-                        <Link to="/contact" className="grow m- 0 text-center hover:bg-teal-500 p-2">Contact</Link>
+                        <Link to="/events" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Events</Link>
+                        {/* <Link to="/programs" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Programs</Link> */}
+                        <Link to="/gallery" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Gallery</Link>
+                        <Link to="/contact" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Contact</Link>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@ export default function Navigation() {
             </div>
 
             {/* Mobile */}
-            <div className="md:hidden container flex justify-between items-center bg-green-900 w-screen p-4">
+            <div className="md:hidden container flex justify-between items-center bg-primary w-screen p-4">
                 <Link to="/" className="md:hidden text-white text-lg font-bold min-h-min">
                     <MobileLogo />
                 </Link>
@@ -75,7 +75,7 @@ export default function Navigation() {
                 <div className="md:hidden">
                     <Menu as="div" className="relative inline-block text-left">
                         <div>
-                            <Menu.Button onClick={() => setOpenMobileNav(!openMobileNav)} className="bg-green-900 text-white rounded-lg focus:bg-green-950 p-3">
+                            <Menu.Button onClick={() => setOpenMobileNav(!openMobileNav)} className="bg-primary text-white rounded-lg focus:bg-secondary p-3">
                                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                                 </svg>
@@ -99,22 +99,22 @@ export default function Navigation() {
                             <Menu.Items className="fixed top-0 right-0 mt-2 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
                                 <div className='flex flex-col p-2'>
                                     <Menu.Item>
-                                        <Link to="/" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Home</Link>
+                                        <Link to="/" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Home</Link>
                                     </Menu.Item>
                                     <Menu.Item>
-                                        <Link to="/about" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">About</Link>
+                                        <Link to="/about" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">About</Link>
                                     </Menu.Item>
                                     <Menu.Item>
-                                        <Link to="/events" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Events</Link>
+                                        <Link to="/events" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Events</Link>
                                     </Menu.Item>
                                     <Menu.Item>
-                                        <Link to="/gallery" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Gallery</Link>
+                                        <Link to="/gallery" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Gallery</Link>
                                     </Menu.Item>
                                     <Menu.Item>
-                                        <Link to="/contact" className="py-3 text-center text-green-900 focus:bg-slate-200 border-b border-slate-200">Contact</Link>
+                                        <Link to="/contact" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Contact</Link>
                                     </Menu.Item>
                                     <Menu.Item>
-                                        <button onClick={() => setShowAccessibility(true)} className="py-3 text-center text-green-900 focus:bg-slate-200">
+                                        <button onClick={() => setShowAccessibility(true)} className="py-3 text-center focus:bg-slate-200">
                                             Accessibility
                                         </button>
                                     </Menu.Item>

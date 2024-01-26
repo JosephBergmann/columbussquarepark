@@ -5,6 +5,7 @@ import Home from './components/Home';
 import './App.css'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import About from './components/About';
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
             <div className='flex-grow md:pt-48 md:px-32'>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/About" element={<About />} />
                     {/* Other routes can be added here */}
                 </Routes>
             </div>
