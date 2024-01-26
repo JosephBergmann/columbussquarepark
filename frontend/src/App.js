@@ -11,7 +11,7 @@ const App = () => {
     return (
         <Router>
             <Navigation />
-            <div className='flex-grow md:pt-48 md:px-32'>
+            <div className='flex-grow pt-32 md:pt-48 md:px-32'>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/About" element={<About />} />

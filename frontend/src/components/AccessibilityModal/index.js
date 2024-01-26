@@ -71,7 +71,7 @@ export default function AccessibilityModal() {
                                                 <Tab as={Fragment}>
                                                     {({ selected}) => (
                                                             <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-secondary' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
+                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-secondary' : 'bg-gray-200 hover:bg-gray-300'}`}
                                                                 onClick={() => setTextSize('base')}
                                                             >
                                                                 Normal
@@ -81,7 +81,7 @@ export default function AccessibilityModal() {
                                                 <Tab as={Fragment}>
                                                     {({ selected}) => (
                                                             <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-secondary' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
+                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-secondary' : 'bg-gray-200 hover:bg-gray-300'}`}
                                                                 onClick={() => setTextSize('lg')}
                                                             >
                                                                 Large

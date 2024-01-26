@@ -66,7 +66,7 @@ export default function Navigation() {
             </div>
 
             {/* Mobile */}
-            <div className="md:hidden container flex justify-between items-center bg-primary w-screen p-4">
+            <div className="md:hidden container fixed top-0 flex justify-between items-center bg-primary w-screen p-4">
                 <Link to="/" className="md:hidden text-white text-lg font-bold min-h-min">
                     <MobileLogo />
                 </Link>
@@ -96,8 +96,8 @@ export default function Navigation() {
                             leaveFrom="opacity-100 translate-y-0 scale-100"
                             leaveTo="opacity-0 -translate-y-full scale-95"
                         >
-                            <Menu.Items className="fixed top-0 right-0 mt-2 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
-                                <div className='flex flex-col p-2'>
+                            <Menu.Items className="fixed top-0 right-0 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
+                                <div className='flex flex-col'>
                                     <Menu.Item>
                                         <Link to="/" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Home</Link>
                                     </Menu.Item>

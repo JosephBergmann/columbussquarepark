@@ -2,10 +2,11 @@ import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import MobileLogo from '../Navigation/mobile-logo';
-
+import LoginModal from '../LoginModal';
+import { useLogin } from '../../context/login';
 
 export default function Footer() {
-
+    const { showLogin, setShowLogin } = useLogin()
 
     return (
         <div className="w-full bg-primary">
@@ -41,11 +42,13 @@ export default function Footer() {
                 </div>
                 <div className='flex flex-col gap-3 px-3'>
                     <h2 className='text-2xl font-newspaper'>Admin</h2>
-                    <button className='py-2 px-4 md:px-8 bg-fun text-white rounded-xl border border-fun active:bg-secondary active:border active:border-white'>
+                    <button onClick={() => setShowLogin(true)} className='py-2 px-4 md:px-8 bg-fun text-white rounded-xl border border-fun active:bg-secondary active:border active:border-white'>
                         Log in
                     </button>
                 </div>
             </div>
+
+            {showLogin && <LoginModal />}
         </div>
     )
 }
