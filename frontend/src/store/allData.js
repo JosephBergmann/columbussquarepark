@@ -4,10 +4,20 @@ const initialState = {
     loaded: false
 }
 
+
 export const fetchAll = createAsyncThunk(
     'allData/getAllData',
-    async (images) => {
-
+    async (thunkAPI) => {
+        try {
+            const res = await fetch("/api/getAllData")
+            if (res.ok) {
+                const data = await res.json()
+                return data
+            }
+        } catch (err) {
+            const data = await err.json()
+            return data
+        }
     }
 )
 
