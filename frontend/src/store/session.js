@@ -8,9 +8,7 @@ export const authenticate = createAsyncThunk(
     'session/authenticate',
     async (thunkAPI) => {
         const res = await fetch("/api/session")
-        console.log('res', res)
         if (res.ok) {
-            console.log('fetched')
             const data = await res.json()
             return data
         } else {
@@ -22,15 +20,17 @@ export const authenticate = createAsyncThunk(
 
 export const login = createAsyncThunk(
     'session/login',
-    async (credentials, thunkAPI) => {
+    async (email, password, thunkAPI) => {
         const res = await fetch("/api/session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                email: credentials.email,
-                password: credentials.password,
+                // email: credentials.email,
+                // password: credentials.password,
+                email,
+                password,
             })
         })
         if (res.ok) {
