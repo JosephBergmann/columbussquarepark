@@ -13,7 +13,7 @@ export default function Home() {
         <>
             <div class="bg-cover bg-center min-h-96" style={{ backgroundImage: `url(${parkPhoto})` }}>
             </div>
-            <div className='flex flex-col md:flex-row items-center justify-around gap-20 my-10'>
+            <div className='flex sm:flex-col md:flex-row items-center justify-around gap-20 my-10'>
                 <div className='flex flex-col items-center'>
                     <span className={subHeaderClass} >Learn about the park</span>
                     <img className={iconClass} src={lightbuld}/>
@@ -27,9 +27,9 @@ export default function Home() {
                     <img className={iconClass} src={calendar}/>
                 </div>
             </div>
-            <div className='flex flex-col gap-4 mx-12 items-center'>
+            <div className='flex flex-col items-center'>
                 <span className={subHeaderClass}>View our gallery</span>
-                <div className='flex justify-around gap-4'>
+                <div className='flex justify-around gap-4 mt-4 mb-8'>
                     <GalleryPreview />
                 </div>
             </div>
