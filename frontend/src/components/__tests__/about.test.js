@@ -1,15 +1,15 @@
 import { render, screen, cleanup } from '@testing-library/react'
 import renderer from 'react-test-renderer'
-import Home from '../Home'
+import About from '../About'
 
-test('should render home component', () => {
-    render(<Home/>)
-    const homeElement = screen.getByTestId('home-1');
+test('should render about component', () => {
+    render(<About />)
+    const homeElement = screen.getByTestId('about-1');
     expect(homeElement).toBeInTheDocument();
 })
 
 test('matches snapshot', () => {
-    const tree = renderer.create(<Home />).toJSON();
+    const tree = renderer.create(<About />).toJSON();
     console.log(tree);
     expect(tree).toMatchSnapshot();
 })

@@ -4,7 +4,7 @@ import React from 'react';
 export default function About() {
 
     return (
-        <div>
+        <div data-testid='about-1'>
             <p className='mb-5'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
