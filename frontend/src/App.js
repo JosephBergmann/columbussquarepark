@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import About from './components/About';
 
+
 const App = () => {
     return (
         <Router>

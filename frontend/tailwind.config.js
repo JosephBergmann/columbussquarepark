@@ -12,6 +12,8 @@ module.exports = {
         'fun': '#6CBD91',
         'primary': '#A0C6B1',
         'secondary': '#ACD2BD',
+        'csp-yellow': '#FF7C03',
+        'csp-yellow-2': '',
       },
     },
   },

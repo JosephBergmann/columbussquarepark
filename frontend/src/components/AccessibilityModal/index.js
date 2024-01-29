@@ -1,12 +1,26 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
-import { useAccessibility } from '../../context/accessibility';
+import { useAccessibilityModal, useAccessibilitySettings } from '../../context/accessibility';
 
 export default function AccessibilityModal() {
-    const {showAccessibility, setShowAccessibility} = useAccessibility();
-    const [darkMode, setDarkMode] = useState(false);
-    const [textSize, setTextSize] = useState("base")
+    const { showAccessibility, setShowAccessibility } = useAccessibilityModal();
+    const { accessibilitySettings, setAccessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
+
+    const confirmSettings = (darkMode, textSize) => {
+        // setAccessibilitySettings({ 'darkMode': darkMode, 'textSize': textSize});
+        setShowAccessibility(false);
+        return;
+    }
+
+    const updateDarkMode = () => {
+        setAccessibilitySettings({ ...accessibilitySettings, 'darkMode': !accessibilitySettings.darkMode })
+    }
+
+    const updateTextSize = (bool) => {
+        setAccessibilitySettings({ ...accessibilitySettings, 'textSize': bool })
+    }
 
     return (
         <Transition appear show={showAccessibility} as={Fragment}>
@@ -20,7 +34,7 @@ export default function AccessibilityModal() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-black/25" />
+                    <div className={`fixed inset-0 ${darkMode ? "bg-white/25" : "bg-black/25"}`} />
                 </Transition.Child>
 
                 <div className="fixed inset-0 overflow-y-auto flex items-center justify-center">
@@ -36,23 +50,23 @@ export default function AccessibilityModal() {
                         <Dialog.Panel className={`w-full max-w-md transform overflow-hidden rounded-2xl ${darkMode ? "bg-black" : "bg-white"} p-6 text-left align-middle shadow-xl transition-all`}>
                             <Dialog.Title
                                 as="h1"
-                                className={`${darkMode ? "text-white" : null} ${textSize === 'lg' ? "text-2xl" : "text-xl"} leading-6 text-gray-900`}
+                                className={`${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"} leading-6 text-gray-900`}
                             >
                                 Accessibility
                             </Dialog.Title>
                             <div className="mt-2">
-                                <p className={`${textSize === 'lg' ? "text-base" : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
+                                <p className={`${textSize ? "text-base pt-2" : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                                     Customize your experience tailored to your preferences.
                                 </p>
                             </div>
                             <div className='py-1 w-full'>
                                 <div className='grid grid-cols-2 items-center mt-6'>
-                                    <div className={`${darkMode ? "text-white" : null} ${textSize === 'lg' ? "text-lg" : "text-base"}`}>Dark Mode</div>
+                                    <div className={`${darkMode ? "text-white" : null} ${textSize ? "text-lg" : "text-base"}`}>Dark Mode</div>
                                     <Switch
                                         checked={darkMode}
-                                        onChange={() => setDarkMode(!darkMode)}
+                                        onChange={() => updateDarkMode()}
                                         className={`${
-                                            darkMode ? 'bg-secondary' : 'bg-gray-300'
+                                            darkMode ? 'bg-fun' : 'bg-gray-300'
                                         } relative inline-flex h-6 w-10 items-center rounded-full`}
                                         >
                                         <span className="sr-only">Enable notifications</span>
@@ -64,15 +78,15 @@ export default function AccessibilityModal() {
                                     </Switch>
                                 </div>
                                 <div className='grid grid-cols-2 items-center mt-6'>
-                                    <div className={`${darkMode ? "text-white" : null} ${textSize === 'lg' ? "text-lg" : "text-base"}`}>Text Size</div>
+                                    <div className={`${darkMode ? "text-white" : null} ${textSize ? "text-lg" : "text-base"}`}>Text Size</div>
                                     <div>
                                         <Tab.Group>
                                             <Tab.List className="grid grid-cols-2 bg-gray-200 rounded-xl">
                                                 <Tab as={Fragment}>
                                                     {({ selected}) => (
                                                             <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-secondary' : 'bg-gray-200 hover:bg-gray-300'}`}
-                                                                onClick={() => setTextSize('base')}
+                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                                                onClick={() => updateTextSize(false)}
                                                             >
                                                                 Normal
                                                             </button>
@@ -81,8 +95,8 @@ export default function AccessibilityModal() {
                                                 <Tab as={Fragment}>
                                                     {({ selected}) => (
                                                             <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-secondary' : 'bg-gray-200 hover:bg-gray-300'}`}
-                                                                onClick={() => setTextSize('lg')}
+                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                                                onClick={() => updateTextSize(true)}
                                                             >
                                                                 Large
                                                             </button>
@@ -112,7 +126,7 @@ export default function AccessibilityModal() {
                                     </div> */}
                                 </div>
                                 <div className='w-full flex justify-center'>
-                                    <button className='mt-10 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
+                                    <button onClick={(darkMode, textSize) => confirmSettings(darkMode, textSize)} className={`mt-10 py-3 px-8 bg-fun rounded-xl active:bg-gray-300 ${textSize ? 'text-lg' : null}`}>
                                         Confirm
                                     </button>
                                 </div>

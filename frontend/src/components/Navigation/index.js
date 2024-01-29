@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import MobileLogo from './mobile-logo';
 import logo from './csp-logo.gif';
-import { useAccessibility } from '../../context/accessibility';
+import { useAccessibilityModal, useAccessibilitySettings } from '../../context/accessibility';
 import AccessibilityModal from '../AccessibilityModal';
 
 export default function Navigation() {
     const [openMobileNav, setOpenMobileNav] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
-    const {showAccessibility, setShowAccessibility} = useAccessibility()
+    const {showAccessibility, setShowAccessibility} = useAccessibilityModal()
 
     return (
         <div>
