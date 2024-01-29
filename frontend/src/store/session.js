@@ -8,9 +8,7 @@ export const authenticate = createAsyncThunk(
     'session/authenticate',
     async (thunkAPI) => {
         const res = await fetch("/api/session")
-        console.log('res', res)
         if (res.ok) {
-            console.log('fetched')
             const data = await res.json()
             return data
         } else {
