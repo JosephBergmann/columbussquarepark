@@ -1,4 +1,5 @@
 import eventList from './temp_events'
+import parkImage from '../Home/gallery_images/image_1.jpeg'
 
 export default function SingleEvent({event}) {
 
@@ -6,7 +7,7 @@ export default function SingleEvent({event}) {
 
     const eventTextClass = 'tracking-widest xxs:text-sm xs:text-md sm:text-md md:text-md lg:w-md xl:md my-2'
 
-    const eventDate = event.date; 
+    const eventDate = event.date;
     // Extract date
     const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
     const formattedDate = eventDate.toLocaleString('en-US', dateOptions);
@@ -16,15 +17,16 @@ export default function SingleEvent({event}) {
     const formattedTime = eventDate.toLocaleString('en-US', timeOptions);
 
     return (
-        <div className="container border-solid border-2 border-black my-4 p-4">
+        <div className="container border-solid border-2 border-black my-4 p-4 flex">
             <div>
-                <p className={eventTextClass}>title: {event.title}</p>
-                <p className={eventTextClass}>date: {formattedDate} at {formattedTime}</p>
-                <p className={eventTextClass}>location:{event.location}</p>
-                <p className={eventTextClass}>description: {event.description}</p>
+                <p className={eventTextClass}><span className="font-bold">title: </span> {event.title}</p>
+                <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate} at {formattedTime}</p>
+                <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>
+                <p className={eventTextClass}><span className="font-bold">description: </span>{event.description}</p>
             </div>
             <div>
-                <img  />
+                <img className="w-full xxs:max-w-5 xs:max-w-10 sm:min-w-36 md:min-w-36 lg:w-52 xl:min-w-70 rounded-sm"
+                src={parkImage}/>
             </div>
         </div>
     )
