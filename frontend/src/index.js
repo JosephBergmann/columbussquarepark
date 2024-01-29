@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Provider } from 'react-redux'
+import store from './store'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
@@ -12,13 +14,6 @@ import { LoginProvider } from "./context/login.js"
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-// function Root() {
-// 	return (
-// 					<BrowserRouter>
-// 						<App />
-// 					</BrowserRouter>
-// 	);
-// }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -26,7 +21,9 @@ root.render(
   <React.StrictMode>
     <AccessibilityProvider>
       <LoginProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </LoginProvider>
     </AccessibilityProvider>
   </React.StrictMode>

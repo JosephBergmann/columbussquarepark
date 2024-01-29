@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from './components/Home';
@@ -6,9 +6,18 @@ import './App.css'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import About from './components/About';
+import { useDispatch } from "react-redux"
+import { authenticate } from './store/session';
+
 
 
 const App = () => {
+    const dispatch = useDispatch()
+    const [isLoaded, setIsLoaded] = useState()
+    useEffect(() => {
+        dispatch(authenticate()).then(() => setIsLoaded(true))
+    }, [dispatch])
+
     return (
         <Router>
             <Navigation />

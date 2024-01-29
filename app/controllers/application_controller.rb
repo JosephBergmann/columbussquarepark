@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
             render json: {errors: ['User must be logged out']}, status: :unauthorized
         end
     end
-    private 
+    private
     def snake_case_params
         params.deep_transform_keys!(&:underscore)
     end
@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
           @message = "#{error.class} - #{error.message}"
           @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
           render 'api/errors/internal_server_error', status: :internal_server_error
-          
+
           logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
         end
       end
