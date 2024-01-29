@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import About from './components/About';
 import { useDispatch } from "react-redux"
 import { authenticate } from './store/session';
+import Events from './components/Events';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/About" element={<About />} />
+                    <Route path="/Events" element={<Events />} />
                     {/* Other routes can be added here */}
                 </Routes>
             </div>
