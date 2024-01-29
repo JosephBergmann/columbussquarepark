@@ -10,7 +10,7 @@ export default function Home() {
     const iconClass = "sm:w-16 md:w-20 lg:w-24 xl:w-32"
 
     return (
-        <>
+        <div data-testid='home-1'>
             <div class="bg-cover bg-center min-h-96" style={{ backgroundImage: `url(${parkPhoto})` }}>
             </div>
             <div className='flex sm:flex-col md:flex-row items-center justify-around gap-20 my-10'>
@@ -33,6 +33,6 @@ export default function Home() {
                     <GalleryPreview />
                 </div>
             </div>
-        </>
+        </div>
     )
 }

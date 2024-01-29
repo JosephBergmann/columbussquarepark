@@ -12,7 +12,7 @@ export default function Navigation() {
     const {showAccessibility, setShowAccessibility} = useAccessibility()
 
     return (
-        <div>
+        <div data-testid='nav-1'>
             {/* Desktop */}
             <div className='fixed top-0 hidden md:flex w-full p-8 gap-5 bg-white/95'>
                 <img src={logo} className='h-32'/>
