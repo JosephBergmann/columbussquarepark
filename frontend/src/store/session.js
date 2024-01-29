@@ -20,17 +20,15 @@ export const authenticate = createAsyncThunk(
 
 export const login = createAsyncThunk(
     'session/login',
-    async (email, password, thunkAPI) => {
+    async (credentials, thunkAPI) => {
         const res = await fetch("/api/session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // email: credentials.email,
-                // password: credentials.password,
-                email,
-                password,
+                email: credentials.email,
+                password: credentials.password,
             })
         })
         if (res.ok) {
