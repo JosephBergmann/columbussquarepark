@@ -3,6 +3,7 @@ import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useAccessibilitySettings } from '../../context/accessibility';
 import DogPark from './dogpark';
 import GardenPolicy from './garden';
+import cspMap from './csp-map.jpg';
 
 
 // aboutView = ['doge', 'garden', 'art']
@@ -11,7 +12,7 @@ export default function About() {
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
 
-    const [aboutView, setAboutView] = useState('dog')
+    const [aboutView, setAboutView] = useState('map')
 
     return (
         <div className="mt-6 mb-20">
@@ -24,13 +25,23 @@ export default function About() {
             <div>
                 <Tab.Group>
                     <Tab.List className="grid grid-cols-3 bg-primary rounded-xl">
+                     <Tab as={Fragment}>
+                            {({ selected}) => (
+                                    <button
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        onClick={() => setAboutView('map')}
+                                    >
+                                        Map
+                                    </button>
+                            )}
+                        </Tab>
                         <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
                                         className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
                                         onClick={() => setAboutView('dog')}
                                     >
-                                        Dog Park
+                                        Dog Park Rules
                                     </button>
                             )}
                         </Tab>
@@ -44,22 +55,14 @@ export default function About() {
                                     </button>
                             )}
                         </Tab>
-                        <Tab as={Fragment}>
-                            {({ selected}) => (
-                                    <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
-                                        onClick={() => setAboutView('art')}
-                                    >
-                                        Art in the Park
-                                    </button>
-                            )}
-                        </Tab>
                     </Tab.List>
                 </Tab.Group>
-                <div className={`rounded-xl bg-slate-200 mt-4 mb-10 ${darkMode && "bg-gray-600"}`}>
+                <div className={`rounded-xl bg-slate-200 mt-4 mb-10 ${darkMode && "bg-gray-800"}`}>
                     {aboutView === 'dog' && <DogPark />}
                     {aboutView === 'garden' && <GardenPolicy />}
-                    {aboutView === 'dog' && <></>}
+                    {aboutView === 'map' && <div className='p-8 flex justify-center'>
+                        <img src={cspMap} />
+                    </div>}
                 </div>
             </div>
         </div>

@@ -1,24 +1,32 @@
 import React from 'react';
-
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import { useAccessibilitySettings } from '../../context/accessibility';
 
 export default function Contact() {
-    // var map = L.map('map').setView([39.9329856,-75.1670683], 13);
+    const { accessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
 
     return (
-        <div>
-            <h1>Contact</h1>
-            <div>
-                <div>
-                    {/* <div id='map' className="h-full"></div> */}
+        <div className='mt-10 mb-36'>
+            <h1 className={`${darkMode && "text-white"} ${textSize ? "text-3xl" : "text-2xl"} leading-6 pb-8`}>Contact</h1>
+            <div className='flex flex-col md:grid md:grid-cols-2 gap-10'>
+                <div className='-z-10'>
+                    <MapContainer center={[39.9329856,-75.1650]} zoom={17} style={{ height: '560px', width: '100%', zIndex: '-10' }}>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        />
+                    </MapContainer>
                 </div>
-                <div>
-                    <div>
-                        <h1>Recreation Center Hours</h1>
+                <div className='flex flex-col justify-evenly px-10'>
+                    <div className='py-5'>
+                        <h1 className={`${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"} underline leading-6 pb-4`}>Recreation Center Hours</h1>
                         <p>During the Fall, Winter, and Spring most centers operate between 2:00 PM and 10:00 PM. Some centers have limited hours on Saturdays.</p>
                     </div>
-                    <div>
-                        <h1>Contact Info</h1>
-                        <div>
+                    <div className='py-5'>
+                        <h1 className={`${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"} underline leading-6 pb-4`}>Contact Info</h1>
+                        <div className='mb-4'>
                             <ul>
                                 <li>Columbus Square Park</li>
                                 <li>Recreation Center</li>
@@ -27,11 +35,11 @@ export default function Contact() {
                             </ul>
                         </div>
                         <div>
-                            <div className='text-white flex gap-3 mb-2 content-end items-center'>
+                            <div className='flex gap-3 mb-2 content-end items-center'>
                                 <i class="fa-solid fa-phone"></i>
                                 (215) 685-1590
                             </div>
-                            <div className='text-white flex gap-3 mb-2 content-end items-center'>
+                            <div className='flex gap-3 mb-2 content-end items-center'>
                                 <i class="fa-solid fa-envelope"></i>
                                 info@mycolumbussquarepark.org
                             </div>

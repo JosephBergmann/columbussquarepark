@@ -14,7 +14,7 @@ export default function Navigation() {
     const { darkMode, textSize } = accessibilitySettings;
 
     return (
-        <div>
+        <div className='z-20'>
             {/* Desktop */}
             <div className={`fixed top-0 hidden md:flex w-full p-8 gap-5 ${darkMode ? "bg-gray-700/95" : "bg-white/95"}`}>
                 <img src={logo} className='h-32'/>

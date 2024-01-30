@@ -12,7 +12,7 @@ export default function DogPark() {
             <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} my-4`}>Failure to abide by the park rules may result in loss of privileges. All visitors must be accompanied by a dog. Owners are fully responsible for the conduct of their dog(s).</p>
             <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} my-4`}>By entering the dog run, you agree to the following rules:</p>
             <ol className="list-decimal py-2 px-10">
-                <li className={`${darkMode && "text-white"} ${darkMode && "text-white"} ${textSize ? "text-lg" : null} mb-4`}>Aggressive behavior will not be tolerated from dogs or owners. Dogs must be removed at the first sign of aggression.</li>
+                <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mb-4`}>Aggressive behavior will not be tolerated from dogs or owners. Dogs must be removed at the first sign of aggression.</li>
 
                 <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mb-4`}>The following are prohibited in the park:
                     <ul className="list-disc pl-8">
