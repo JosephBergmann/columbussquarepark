@@ -8,7 +8,7 @@ export default function DogPark() {
 
     return (
         <div className="py-6 px-8">
-            <h1 className={`${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"} underline leading-6 pb-2 mt-2`}>Rules</h1>
+            <h1 className={`${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"} underline leading-6 pb-2 mt-2`}>Dog Park Rules</h1>
             <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} my-4`}>Failure to abide by the park rules may result in loss of privileges. All visitors must be accompanied by a dog. Owners are fully responsible for the conduct of their dog(s).</p>
             <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} my-4`}>By entering the dog run, you agree to the following rules:</p>
             <ol className="list-decimal py-2 px-8">

@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useAccessibilitySettings } from '../../context/accessibility';
 import DogPark from './dogpark';
+import GardenPolicy from './garden';
 
 
 // aboutView = ['doge', 'garden', 'art']
@@ -13,7 +14,7 @@ export default function About() {
     const [aboutView, setAboutView] = useState('dog')
 
     return (
-        <div className="">
+        <div className="mt-6 mb-10">
             <div className="my-4">
                 <h1 className={`${darkMode && "text-white"} ${textSize ? "text-3xl" : "text-2xl"} leading-6 pb-4`}>About</h1>
                 <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
@@ -55,9 +56,9 @@ export default function About() {
                         </Tab>
                     </Tab.List>
                 </Tab.Group>
-                <div className={`rounded-xl bg-slate-200 my-4 ${darkMode && "bg-gray-600"}`}>
+                <div className={`rounded-xl bg-slate-200 mt-4 mb-10 ${darkMode && "bg-gray-600"}`}>
                     {aboutView === 'dog' && <DogPark />}
-                    {aboutView === 'dog' && <></>}
+                    {aboutView === 'garden' && <GardenPolicy />}
                     {aboutView === 'dog' && <></>}
                 </div>
             </div>
