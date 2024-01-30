@@ -8,28 +8,37 @@ import Footer from './components/Footer';
 import About from './components/About';
 import { useDispatch } from "react-redux"
 import { authenticate } from './store/session';
+import { useAccessibilitySettings } from './context/accessibility';
+import Contact from './components/Contact';
 import Events from './components/Events';
 
 
 const App = () => {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState()
+
+    const { accessibilitySettings, setAccessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
+
     useEffect(() => {
         dispatch(authenticate()).then(() => setIsLoaded(true))
     }, [dispatch])
 
     return (
         <Router>
-            <Navigation />
-            <div className='flex-grow pt-32 md:pt-48 md:px-32'>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/About" element={<About />} />
-                    <Route path="/Events" element={<Events />} />
+            <div className={`${darkMode && 'bg-gray-700'}`}>
+                <Navigation />
+                <div className={`flex-grow pt-32 md:pt-48 md:px-32`}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/About" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/Events" element={<Events />} />
                     {/* Other routes can be added here */}
-                </Routes>
+                    </Routes>
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </Router>
     );
 }

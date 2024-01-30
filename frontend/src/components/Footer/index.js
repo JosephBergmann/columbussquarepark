@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <div className="w-full bg-primary">
-            <div className='flex flex-col md:flex-row justify-center gap-16 md:gap-32 px-8 py-12'>
+            <div className='flex flex-col md:flex-row justify-center md:gap-32 gap-16 px-8 py-12'>
                 {/* <div className='flex flex-col max-w-80 gap-3 px-3'>
                     <h2 className='text-yellow-300 text-2xl font-newspaper'>About</h2>
                     <p className='text-white pr-3'>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
@@ -19,11 +19,11 @@ export default function Footer() {
                     <div>
                         <div className='text-white flex gap-3 mb-2 content-end items-center'>
                             <i class="fa-solid fa-phone"></i>
-                            (123) 456-7890
+                            (215) 685-1590
                         </div>
                         <div className='text-white flex gap-3 mb-2 content-end items-center'>
                             <i class="fa-solid fa-envelope"></i>
-                            admin@csp.org
+                            info@mycolumbussquarepark.org
                         </div>
                         <div className='text-white flex gap-3 mb-2 content-end items-center'>
                             <i class="fa-brands fa-facebook"></i>
@@ -41,7 +41,7 @@ export default function Footer() {
                 </div>
                 <div className='flex flex-col gap-3 px-3'>
                     <h2 className='text-2xl font-newspaper'>Admin</h2>
-                    <button onClick={() => setShowLogin(true)} className='py-2 px-4 md:px-8 bg-fun text-white rounded-xl border border-fun active:bg-secondary active:border active:border-white'>
+                    <button onClick={() => setShowLogin(true)} className='py-2 px-4 md:px-8 bg-yellow-500 text-white rounded-xl border border-yellow-500 active:bg-slate-200 active:border active:border-slate-200'>
                         Log in
                     </button>
                 </div>
