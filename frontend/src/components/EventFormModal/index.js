@@ -95,7 +95,7 @@ export default function EventFormModal() {
                                 placeholder='Location'
                                 onChange={(e) => setLocation(e.target.value)}
                             >
-                                <option value="">choose one</option>
+                                <option value="">Choose one</option>
                                 <option value="Whole Park">Whole Park</option>
                                 <option value="Field">Field</option>
                                 <option value="Playground">Playground</option>
