@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux"
 import { authenticate } from './store/session';
 import { useAccessibilitySettings } from './context/accessibility';
 import Contact from './components/Contact';
+import Events from './components/Events';
 
 
 const App = () => {
@@ -32,7 +33,8 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/About" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
-                        {/* Other routes can be added here */}
+                        <Route path="/Events" element={<Events />} />
+                    {/* Other routes can be added here */}
                     </Routes>
                 </div>
                 <Footer />

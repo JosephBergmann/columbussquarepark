@@ -3,16 +3,22 @@ import { Link } from 'react-router-dom';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useLogin } from '../../context/login';
 import { useAccessibilitySettings } from '../../context/accessibility';
+import { login } from '../../store/session';
+import {useDispatch} from 'react-redux'
 
 export default function LoginModal() {
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
 
+    const dispatch = useDispatch()
     const { showLogin, setShowLogin } = useLogin()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (email, password) => {
+    const handleSubmit = async (email, password) => {
+        const credentials = {email, password}
+        console.log("credentials - handle submit", credentials)
+        const data = await dispatch(login(credentials))
         return;
     }
 
