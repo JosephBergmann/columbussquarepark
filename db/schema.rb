@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_30_070847) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_30_204150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_30_070847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organizer_id"
+    t.string "location"
     t.index ["description"], name: "index_events_on_description"
     t.index ["full"], name: "index_events_on_full"
     t.index ["name"], name: "index_events_on_name"
@@ -44,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_30_070847) do
     t.string "organization"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_organizers_on_email"
+    t.index ["email"], name: "index_organizers_on_email", unique: true
     t.index ["name"], name: "index_organizers_on_name"
   end
 
