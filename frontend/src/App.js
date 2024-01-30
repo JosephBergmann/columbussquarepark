@@ -9,6 +9,7 @@ import About from './components/About';
 import { useDispatch } from "react-redux"
 import { authenticate } from './store/session';
 import { useAccessibilitySettings } from './context/accessibility';
+import Contact from './components/Contact';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/About" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
                         {/* Other routes can be added here */}
                     </Routes>
                 </div>

@@ -19,11 +19,11 @@ export default function Footer() {
                     <div>
                         <div className='text-white flex gap-3 mb-2 content-end items-center'>
                             <i class="fa-solid fa-phone"></i>
-                            (123) 456-7890
+                            (215) 685-1590
                         </div>
                         <div className='text-white flex gap-3 mb-2 content-end items-center'>
                             <i class="fa-solid fa-envelope"></i>
-                            admin@csp.org
+                            info@mycolumbussquarepark.org
                         </div>
                         <div className='text-white flex gap-3 mb-2 content-end items-center'>
                             <i class="fa-brands fa-facebook"></i>

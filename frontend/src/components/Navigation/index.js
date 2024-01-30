@@ -25,42 +25,16 @@ export default function Navigation() {
                             Columbus Square Park
                         </div>
                         <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3 ${darkMode ? "text-white hover:bg-slate-500" : null}`}>
-                            <i class="fa-regular fa-circle-question"></i>
+                            <i class="fa-solid fa-universal-access"></i>
                         </button>
                     </div>
                     <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md">
-                        <Link to="/" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Home</Link>
-                        <Link to="/about" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>About</Link>
-                        {/* <Menu as="div" className="grow m- 0 text-center hover:bg-teal-500 p-2">
-                            <Menu.Button onClick={() => setOpenAbout(!openAbout)} className="">About</Menu.Button>
-                            <Transition
-                                as={Fragment}
-                                // enter="transition ease-out duration-100"
-                                // enterFrom="transform opacity-0 scale-95"
-                                // enterTo="transform opacity-100 scale-100"
-                                // leave="transition ease-in duration-75"
-                                // leaveFrom="transform opacity-100 scale-100"
-                                // leaveTo="transform opacity-0 scale-95"
-                            >
-                                <Menu.Items className="mt-2 w-inherit origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5">
-                                    <div>
-                                        <Menu.Item>
-                                            <Link to="" className=''></Link>
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            <Link to="" className=''></Link>
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            <Link to="" className=''></Link>
-                                        </Menu.Item>
-                                    </div>
-                                </Menu.Items>
-                            </Transition>
-                        </Menu> */}
-                        <Link to="/events" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Events</Link>
+                        <Link to="/" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>Home</Link>
+                        <Link to="/about" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>About</Link>
+                        <Link to="/events" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>Events</Link>
                         {/* <Link to="/programs" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Programs</Link> */}
-                        <Link to="/gallery" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Gallery</Link>
-                        <Link to="/contact" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Contact</Link>
+                        <Link to="/gallery" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>Gallery</Link>
+                        <Link to="/contact" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>Contact</Link>
                     </div>
                 </div>
 
