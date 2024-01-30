@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 
-const initialState = {
-    user: null
-}
+// const initialState = {
+//     user: null
+// }
 
 export const authenticate = createAsyncThunk(
     'session/authenticate',
@@ -59,7 +59,7 @@ export const logout = createAsyncThunk(
 
 const sessionSlice = createSlice({
     name: 'session',
-    initialState,
+    initialState: {user: null},
     reducers: {
         // login: (state, action) => {
         //     state.user = action.payload
