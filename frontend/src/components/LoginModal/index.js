@@ -13,7 +13,6 @@ export default function LoginModal() {
 
     const handleSubmit = async (email, password) => {
         const credentials = {email, password}
-        console.log("credentials - handle submit", credentials)
         const data = await dispatch(login(credentials))
         return;
     }
