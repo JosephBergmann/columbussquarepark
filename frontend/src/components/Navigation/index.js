@@ -9,26 +9,28 @@ import AccessibilityModal from '../AccessibilityModal';
 export default function Navigation() {
     const [openMobileNav, setOpenMobileNav] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
-    const {showAccessibility, setShowAccessibility} = useAccessibilityModal()
+    const {showAccessibility, setShowAccessibility} = useAccessibilityModal();
+    const { accessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
 
     return (
         <div>
             {/* Desktop */}
-            <div className='fixed top-0 hidden md:flex w-full p-8 gap-5 bg-white/95'>
+            <div className={`fixed top-0 hidden md:flex w-full p-8 gap-5 ${darkMode ? "bg-gray-700/95" : "bg-white/95"}`}>
                 <img src={logo} className='h-32'/>
 
                 <div className='flex flex-col justify-end w-full gap-5 h-100'>
                     <div className='flex content-end'>
-                        <div className='grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl'>
+                        <div className={`grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl ${darkMode ? "text-white" : null}`}>
                             Columbus Square Park
                         </div>
-                        <button onClick={() => setShowAccessibility(true)} className='grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3'>
+                        <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3 ${darkMode ? "text-white" : null}`}>
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
                     <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md">
-                        <Link to="/" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Home</Link>
-                        <Link to="/about" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">About</Link>
+                        <Link to="/" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Home</Link>
+                        <Link to="/about" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>About</Link>
                         {/* <Menu as="div" className="grow m- 0 text-center hover:bg-teal-500 p-2">
                             <Menu.Button onClick={() => setOpenAbout(!openAbout)} className="">About</Menu.Button>
                             <Transition
@@ -55,10 +57,10 @@ export default function Navigation() {
                                 </Menu.Items>
                             </Transition>
                         </Menu> */}
-                        <Link to="/events" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Events</Link>
+                        <Link to="/events" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Events</Link>
                         {/* <Link to="/programs" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Programs</Link> */}
-                        <Link to="/gallery" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Gallery</Link>
-                        <Link to="/contact" className="grow m- 0 text-center hover:bg-secondary rounded-md p-2">Contact</Link>
+                        <Link to="/gallery" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Gallery</Link>
+                        <Link to="/contact" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2`}>Contact</Link>
                     </div>
                 </div>
 

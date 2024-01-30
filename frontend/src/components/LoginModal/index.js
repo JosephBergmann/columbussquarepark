@@ -2,8 +2,12 @@ import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useLogin } from '../../context/login';
+import { useAccessibilitySettings } from '../../context/accessibility';
 
 export default function LoginModal() {
+    const { accessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
+
     const { showLogin, setShowLogin } = useLogin()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -24,7 +28,7 @@ export default function LoginModal() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="fixed inset-0 bg-black/25" />
+                <div className={`fixed inset-0 ${darkMode ? "bg-white/25" : "bg-black/25"}`} />
             </Transition.Child>
 
             <div className="fixed inset-0 overflow-y-auto flex items-center justify-center">
@@ -37,15 +41,15 @@ export default function LoginModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
                 >
-                    <Dialog.Panel className={`bg-white w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
+                    <Dialog.Panel className={`w-full max-w-md transform overflow-hidden rounded-2xl ${darkMode ? "bg-gray-700" : "bg-white"} p-6 text-left align-middle shadow-xl transition-all`}>
                         <Dialog.Title
                             as="h1"
-                            className="leading-6 text-gray-900 text-xl"
+                            className={`${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"} leading-6 text-gray-900`}
                         >
                             Admin Login
                         </Dialog.Title>
                         <div className="mt-2">
-                            <p className={`text-sm text-gray-500`}>
+                            <p className={`${textSize ? "text-base pt-2" : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                                 Please enter your email and password below.
                             </p>
                         </div>
@@ -67,7 +71,7 @@ export default function LoginModal() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <div className='flex justify-center'>
-                                <button onClick={() => handleSubmit(email, password)} className='mt-4 py-3 px-8 bg-fun text-white rounded-xl active:bg-gray-300'>
+                                <button onClick={() => handleSubmit(email, password)} className={`mt-10 py-3 px-8 bg-fun rounded-xl active:bg-gray-300 ${textSize ? 'text-lg' : null}`}>
                                     Login
                                 </button>
                             </div>

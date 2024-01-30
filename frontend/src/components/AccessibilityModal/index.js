@@ -47,7 +47,7 @@ export default function AccessibilityModal() {
                         leaveFrom="opacity-100 scale-100"
                         leaveTo="opacity-0 scale-95"
                     >
-                        <Dialog.Panel className={`w-full max-w-md transform overflow-hidden rounded-2xl ${darkMode ? "bg-black" : "bg-white"} p-6 text-left align-middle shadow-xl transition-all`}>
+                        <Dialog.Panel className={`w-full max-w-md transform overflow-hidden rounded-2xl ${darkMode ? "bg-gray-700" : "bg-white"} p-6 text-left align-middle shadow-xl transition-all`}>
                             <Dialog.Title
                                 as="h1"
                                 className={`${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"} leading-6 text-gray-900`}
@@ -83,24 +83,20 @@ export default function AccessibilityModal() {
                                         <Tab.Group>
                                             <Tab.List className="grid grid-cols-2 bg-gray-200 rounded-xl">
                                                 <Tab as={Fragment}>
-                                                    {({ selected}) => (
-                                                            <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg ${selected ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
-                                                                onClick={() => updateTextSize(false)}
-                                                            >
-                                                                Normal
-                                                            </button>
-                                                    )}
+                                                    <button
+                                                        className={`md:px-4 py-2 m-1 rounded-lg ${!textSize ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                                        onClick={() => updateTextSize(false)}
+                                                    >
+                                                        Normal
+                                                    </button>
                                                 </Tab>
                                                 <Tab as={Fragment}>
-                                                    {({ selected}) => (
-                                                            <button
-                                                                className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
-                                                                onClick={() => updateTextSize(true)}
-                                                            >
-                                                                Large
-                                                            </button>
-                                                    )}
+                                                    <button
+                                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${textSize ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                                        onClick={() => updateTextSize(true)}
+                                                    >
+                                                        Large
+                                                    </button>
                                                 </Tab>
                                             </Tab.List>
                                         </Tab.Group>
