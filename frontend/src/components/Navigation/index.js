@@ -24,7 +24,7 @@ export default function Navigation() {
                         <div className={`grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl ${darkMode ? "text-white" : null}`}>
                             Columbus Square Park
                         </div>
-                        <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3 ${darkMode ? "text-white" : null}`}>
+                        <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3 ${darkMode ? "text-white hover:bg-slate-500" : null}`}>
                             <i class="fa-regular fa-circle-question"></i>
                         </button>
                     </div>
