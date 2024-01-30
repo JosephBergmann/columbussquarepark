@@ -1,4 +1,4 @@
 class Event < ApplicationRecord
-    validates :name, :full, :date, null: false
-    
+    validates :name, :date, presence: true 
+    belongs_to :organizer
 end
