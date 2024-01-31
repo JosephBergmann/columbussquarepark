@@ -7,6 +7,10 @@ class Api::EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
 
+        if !@event.full
+            @event.full = false
+        end
+        
         if @event.save
             render :show
         else
