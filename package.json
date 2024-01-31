@@ -23,5 +23,9 @@
   "engines": {
     "node": "16.19"
   },
-  "homepage": "https://github.com/JosephBergmann/columbussquarepark#readme"
+  "homepage": "https://github.com/JosephBergmann/columbussquarepark#readme",
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1"
+  }
 }
