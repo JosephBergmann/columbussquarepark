@@ -43,7 +43,6 @@ class Api::EventsController < ApplicationController
     end
     private
     def event_params
-        debugger
         params.require(:event).permit(:name, :description, :full, :date, :location)
     end
 end
