@@ -14,9 +14,9 @@ export default function Navigation() {
     const { darkMode, textSize } = accessibilitySettings;
 
     return (
-        <div>
+        <div className=''>
             {/* Desktop */}
-            <div className={`fixed top-0 hidden md:flex w-full p-8 gap-5 ${darkMode ? "bg-gray-700/95" : "bg-white/95"}`}>
+            <div className={`fixed top-0 hidden md:flex w-full p-8 gap-5 z-10 ${darkMode ? "bg-gray-700/95" : "bg-white/95"}`}>
                 <img src={logo} className='h-32'/>
 
                 <div className='flex flex-col justify-end w-full gap-5 h-100'>
@@ -28,7 +28,7 @@ export default function Navigation() {
                             <i class="fa-solid fa-universal-access"></i>
                         </button>
                     </div>
-                    <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md">
+                    <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md z-10">
                         <Link to="/" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>Home</Link>
                         <Link to="/about" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>About</Link>
                         <Link to="/events" className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"}`}>Events</Link>
