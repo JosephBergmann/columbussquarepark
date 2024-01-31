@@ -15,7 +15,6 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(params[:email], params[:password])
         if @user
             login(@user)
-            debugger
             render 'api/users/show'
         else
             render json: {errors: ['wrong email or password']}, status: :unauthorized
