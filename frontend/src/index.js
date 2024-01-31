@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { AccessibilityProvider } from "./context/accessibility.js"
 import { LoginProvider } from "./context/login.js"
+import { EventFormProvider } from './context/eventForm.js';
 
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
@@ -19,13 +20,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <AccessibilityProvider>
-      <LoginProvider>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </LoginProvider>
-    </AccessibilityProvider>
+    <EventFormProvider>
+      <AccessibilityProvider>
+        <LoginProvider>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </LoginProvider>
+      </AccessibilityProvider>
+    </EventFormProvider>
   </React.StrictMode>
 );
 
