@@ -57,7 +57,7 @@ export default function RemoveEventModal() {
                             </p>
                         </div>
                         <div className="mt-4">
-                            <div className='flex justify-center'>
+                            <div className='flex flex-col justify-center'>
                                 <button onClick={handleRemove} className='mt-4 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
                                     Yes, remove event
                                 </button>

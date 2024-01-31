@@ -52,11 +52,6 @@ export default function EventFormModal() {
             setIsUpdateEventForm(false)
             setEventToUpdate('')
             setShowEventForm(false)
-            setTitle('')
-            setDate('')
-            setTime('')
-            setLocation('')
-            setDescription('')
         }
         return;
     }
