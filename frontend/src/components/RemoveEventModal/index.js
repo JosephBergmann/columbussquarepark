@@ -11,12 +11,16 @@ export default function RemoveEventModal() {
         showRemoveEvent,
         setShowRemoveEvent,
         removeEventId,
-        setRemoveEventId
     } = useEventForm()
 
     const handleRemove = async () => {
         // remove event
-         const data = await dispatch(removeEvent)
+         const data = await dispatch(removeEvent(removeEventId))
+         if(data.errors) {
+
+         } else {
+            setShowRemoveEvent(false)
+         }
     }
 
     return (

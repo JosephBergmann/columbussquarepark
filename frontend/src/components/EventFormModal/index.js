@@ -22,9 +22,9 @@ export default function EventFormModal() {
 
     useEffect(() => {
         if (isUpdateEventForm) {
-            setTitle(eventToUpdate.title)
-            setDate(eventToUpdate.date) // just date
-            setTime(eventToUpdate.date) // just time
+            setTitle(eventToUpdate?.title)
+            setDate(eventToUpdate?.date) // just date
+            setTime(eventToUpdate?.date) // just time
             setLocation(eventToUpdate.location)
             setDescription(eventToUpdate.description)
         }
@@ -41,9 +41,9 @@ export default function EventFormModal() {
         }
         let data
         if (isUpdateEventForm) {
-            // data = await dispatch(updateEvent(event))
+            data = await dispatch(updateEvent(event))
         } else {
-            // data = await dispatch(addEvent(event))
+            data = await dispatch(addEvent(event))
         }
 
         if (data.errors) {
@@ -56,9 +56,19 @@ export default function EventFormModal() {
         return;
     }
 
+    const onClose = () => {
+        setIsUpdateEventForm(false)
+        setShowEventForm(false)
+        setTitle('')
+        setDate('') // just date
+        setTime('') // just time
+        setLocation('')
+        setDescription('')
+    }
+
     return (
         <Transition appear show={showEventForm} as={Fragment}>
-            <Dialog as="div" className="fixed z-100" onClose={() => setShowEventForm(false)}>
+            <Dialog as="div" className="fixed z-100" onClose={onClose}>
             <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"

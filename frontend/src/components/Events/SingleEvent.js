@@ -35,11 +35,6 @@ export default function SingleEvent({event}) {
         setShowEventForm(true)
         setIsUpdateEventForm(true)
         setEventToUpdate(event)
-        // setTitle('edit')
-        // setDate('edit')
-        // setTime('edit')
-        // setLocation('edit')
-        // setDescription('edit')
     }
 
     const removeOnClick = () => {
