@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_30_204150) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_31_020338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,12 +21,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_30_204150) do
     t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "organizer_id"
     t.string "location"
     t.index ["description"], name: "index_events_on_description"
     t.index ["full"], name: "index_events_on_full"
     t.index ["name"], name: "index_events_on_name"
-    t.index ["organizer_id"], name: "index_events_on_organizer_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -58,6 +56,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_30_204150) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
-  add_foreign_key "events", "organizers"
   add_foreign_key "images", "users", column: "poster_id"
 end

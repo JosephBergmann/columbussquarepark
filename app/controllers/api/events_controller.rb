@@ -42,6 +42,6 @@ class Api::EventsController < ApplicationController
     end
     private
     def event_params
-        params.require(:name, :description, :full, :date, :organizer, :location)
+        params.require(:name, :description, :full, :date, :location)
     end
 end
