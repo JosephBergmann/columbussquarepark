@@ -1,3 +1,3 @@
 json.event do
-    json.extract! @event, :name, :description, :date, :organizer, :location
+    json.extract! @event, :name, :description, :date, :location
 end

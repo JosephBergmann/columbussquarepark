@@ -1,6 +1,7 @@
 class Api::EventsController < ApplicationController
     def index
         @events = Event.all
+        render :index
     end
     
     def create
@@ -42,6 +43,7 @@ class Api::EventsController < ApplicationController
     end
     private
     def event_params
-        params.require(:name, :description, :full, :date, :location)
+        debugger
+        params.require(:event).permit(:name, :description, :full, :date, :location)
     end
 end
