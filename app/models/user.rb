@@ -25,24 +25,12 @@ class User < ApplicationRecord
 
 
     
-    # def reset_session_token!
-    #     debugger
-    #     self.session_token = generate_unique_session_token
-    #     self.save!
-    #     session_token
-    #     # self.update!(session_token: generate_unique_session_token)
-    #     # self.session_token
-    # end
-
     def reset_session_token!
-        debugger
         self.session_token = generate_unique_session_token
-        if save
-          session_token
-        else
-          puts errors.full_messages
-        end
+        self.save!
+        session_token
     end
+
 
     def ensure_session_token
         self.session_token ||= generate_unique_session_token
@@ -58,11 +46,4 @@ class User < ApplicationRecord
             return token unless User.exists?(session_token: token)
         end
     end
-
-    # def generate_unique_session_token
-    #     loop do
-    #       token = SecureRandom.base64
-    #       break token unless User.exists?(session_token: token)
-    #     end
-    # end
 end
