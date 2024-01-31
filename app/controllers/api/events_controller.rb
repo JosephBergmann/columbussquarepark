@@ -37,6 +37,7 @@ class Api::EventsController < ApplicationController
         @event = Event.find(params[:id])
         if @event
             @event.destroy
+            render json: {message: 'Success'}
         else
             render json: {message: 'Event not found'}
         end
