@@ -10,6 +10,7 @@ import RemoveEventModal from '../RemoveEventModal'
 
 export default function Events() {
     const user = useSelector(state => state.session.user)
+    const events = useSelector(state => state.events)
     const {
         showEventForm,
         setShowEventForm,

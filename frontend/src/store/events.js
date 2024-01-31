@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 export const addEvent = createAsyncThunk(
     'events/add',
     async (event, thunkAPI) => {
-        const res = await fetch("", {
+        const res = await fetch("/api/events/new", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'events/update',
     async (event, thunkAPI) => {
-        const res = await fetch("", {
+        const res = await fetch(`/api/events/${event.id}/edit`, {
             method: "UPDATE",
             headers: {
                 "Content-Type": "application/json",
@@ -48,8 +48,8 @@ export const updateEvent = createAsyncThunk(
 
 export const removeEvent = createAsyncThunk(
     'events/remove',
-    async (event, thunkAPI) => {
-        const res = await fetch("", {
+    async (eventId, thunkAPI) => {
+        const res = await fetch(`/api/events/${eventId}`, {
             method: "DELETE",
         })
         if (res.ok) {
