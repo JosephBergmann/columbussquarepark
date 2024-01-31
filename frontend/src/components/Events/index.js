@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import SingleEvent from './SingleEvent'
 import eventList from './temp_events'
 import EventCalendar from './EventCalendar'
