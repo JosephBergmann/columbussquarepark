@@ -15,7 +15,7 @@ export default function About() {
     const [aboutView, setAboutView] = useState('map')
 
     return (
-        <div className="mt-6 mb-20">
+        <div className="mt-6 mb-20 px-2">
             <div className="my-4 mb-10">
                 <h1 className={`${darkMode && "text-white"} ${textSize ? "text-3xl" : "text-2xl"} leading-6 pb-4`}>About</h1>
                 <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
@@ -28,7 +28,7 @@ export default function About() {
                      <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
                                         onClick={() => setAboutView('map')}
                                     >
                                         Map
@@ -38,7 +38,7 @@ export default function About() {
                         <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
                                         onClick={() => setAboutView('dog')}
                                     >
                                         Dog Park Rules
@@ -48,7 +48,7 @@ export default function About() {
                         <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
                                         onClick={() => setAboutView('garden')}
                                     >
                                         Garden Policy

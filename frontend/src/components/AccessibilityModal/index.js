@@ -24,7 +24,7 @@ export default function AccessibilityModal() {
 
     return (
         <Transition appear show={showAccessibility} as={Fragment}>
-            <Dialog as="div" className="fixed z-100" onClose={() => setShowAccessibility(false)}>
+            <Dialog as="div" className="fixed z-10" onClose={() => setShowAccessibility(false)}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
