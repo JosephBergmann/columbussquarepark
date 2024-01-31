@@ -1,7 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useEventForm } from '../../context/eventForm';
 import {useDispatch} from 'react-redux'
+import { updateEvent, addEvent } from '../../store/events';
 
 export default function EventFormModal() {
     const dispatch = useDispatch()
@@ -10,7 +11,24 @@ export default function EventFormModal() {
     const [time, setTime] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
-    const { showEventForm, setShowEventForm } = useEventForm()
+    const {
+        showEventForm,
+        setShowEventForm,
+        isUpdateEventForm,
+        setIsUpdateEventForm,
+        eventToUpdate,
+        setEventToUpdate,
+    } = useEventForm()
+
+    useEffect(() => {
+        if (isUpdateEventForm) {
+            setTitle(eventToUpdate.title)
+            setDate(eventToUpdate.date) // just date
+            setTime(eventToUpdate.date) // just time
+            setLocation(eventToUpdate.location)
+            setDescription(eventToUpdate.description)
+        }
+    }, [eventToUpdate, isUpdateEventForm])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,7 +39,25 @@ export default function EventFormModal() {
             location,
             description
         }
-        // const data = await dispatch(login(event))
+        let data
+        if (isUpdateEventForm) {
+            // data = await dispatch(updateEvent(event))
+        } else {
+            // data = await dispatch(addEvent(event))
+        }
+
+        if (data.errors) {
+
+        } else {
+            setIsUpdateEventForm(false)
+            setEventToUpdate('')
+            setShowEventForm(false)
+            setTitle('')
+            setDate('')
+            setTime('')
+            setLocation('')
+            setDescription('')
+        }
         return;
     }
 
@@ -71,6 +107,7 @@ export default function EventFormModal() {
                                 name="title"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
                                 placeholder='Title'
+                                value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                             />
                             <input
@@ -78,6 +115,7 @@ export default function EventFormModal() {
                                 id="date"
                                 name="date"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
+                                value={date}
                                 onChange={(e) => setDate(e.target.value)}
                             />
                             <input
@@ -85,14 +123,15 @@ export default function EventFormModal() {
                                 id="time"
                                 name="time"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
+                                value={time}
                                 onChange={(e) => setTime(e.target.value)}
                             />
                             <select
-                                type="text"
-                                id="title"
-                                name="title"
+                                id="location"
+                                name="location"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
                                 placeholder='Location'
+                                value="location"
                                 onChange={(e) => setLocation(e.target.value)}
                             >
                                 <option value="">Choose one</option>
@@ -109,6 +148,7 @@ export default function EventFormModal() {
                                 name="description"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
                                 placeholder='Description'
+                                value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                             <div className='flex justify-center'>

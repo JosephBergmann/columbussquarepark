@@ -5,11 +5,19 @@ import EventCalendar from './EventCalendar'
 import { useSelector } from 'react-redux'
 import { useEventForm } from '../../context/eventForm'
 import EventFormModal from '../EventFormModal'
+import RemoveEventModal from '../RemoveEventModal'
 
 
 export default function Events() {
     const user = useSelector(state => state.session.user)
-    const {showEventForm, setShowEventForm} = useEventForm()
+    const {
+        showEventForm,
+        setShowEventForm,
+        showRemoveEvent,
+        setShowRemoveEvent,
+        isUpdateEventForm,
+        setIsUpdateEventForm
+    } = useEventForm()
 
     const subHeaderClass = 'text-left underline underline-offset-8 tracking-widest xxs:text-md xs:text-lg sm:text-xl md:text-2xl lg:w-3xl xl:4xl my-8'
 
@@ -36,10 +44,11 @@ export default function Events() {
                     {eventsMap}
                 </div>
             </div>
-            <div>
+            {/* <div>
                 <EventCalendar/>
-            </div>
+            </div> */}
             {showEventForm && <EventFormModal/>}
+            {showRemoveEvent && <RemoveEventModal/>}
         </div>
     )
 }
