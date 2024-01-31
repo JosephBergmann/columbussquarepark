@@ -33,15 +33,16 @@ export default function EventFormModal() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const event = {
-            title,
+            name: title,
             date,
             time,
             location,
-            description
+            description,
+            full: false
         }
 
         if (isUpdateEventForm) event['id'] = eventToUpdate.id
-        
+
         let data
         if (isUpdateEventForm) {
             data = await dispatch(updateEvent(event))
@@ -56,7 +57,7 @@ export default function EventFormModal() {
             setEventToUpdate('')
             setShowEventForm(false)
         }
-        return;
+        
     }
 
     const onClose = () => {
