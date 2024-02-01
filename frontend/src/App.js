@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import { useAccessibilitySettings } from './context/accessibility';
 import Contact from './components/Contact';
 import Events from './components/Events';
+import Gallery from './components/Gallery';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
                         <Route path="/About" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/Events" element={<Events />} />
+                        <Route path="/Gallery" element={<Gallery />} />
                     {/* Other routes can be added here */}
                     </Routes>
                 </div>
