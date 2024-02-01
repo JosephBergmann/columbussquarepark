@@ -1,11 +1,24 @@
 import React, { useState, Fragment } from 'react';
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import MobileLogo from '../Navigation/mobile-logo';
 import LoginModal from '../LoginModal';
-import { useLogin } from '../../context/login';
+import { useLogin, useLogout } from '../../context/login';
+import LogoutModal from '../LogoutModal';
 
 export default function Footer() {
-    const { showLogin, setShowLogin } = useLogin()
+    const { showLogin, setShowLogin } = useLogin();
+    const { showLogout, setShowLogout } = useLogout();
+
+    const user = useSelector(state => state.session.user)
+
+    const handleUser = () => {
+        if (user) {
+            setShowLogout(true)
+        } else {
+            setShowLogin(true)
+        }
+    }
 
     return (
         <div className="w-full bg-primary">
@@ -41,13 +54,14 @@ export default function Footer() {
                 </div>
                 <div className='flex flex-col gap-3 px-3'>
                     <h2 className='text-2xl font-newspaper'>Admin</h2>
-                    <button onClick={() => setShowLogin(true)} className='py-2 px-4 md:px-8 bg-yellow-500 text-white rounded-xl border border-yellow-500 active:bg-slate-200 active:border active:border-slate-200'>
-                        Log in
+                    <button onClick={() => handleUser()} className='py-2 px-4 md:px-8 bg-yellow-500 text-white rounded-xl border border-yellow-500 active:bg-slate-200 active:border active:border-slate-200'>
+                        {user ? "Log Out" : "Log In"}
                     </button>
                 </div>
             </div>
 
             {showLogin && <LoginModal />}
+            {showLogout && <LogoutModal />}
         </div>
     )
 }
