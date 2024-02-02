@@ -29,13 +29,7 @@ export default function EventFormModal() {
             setDescription(eventToUpdate.description)
 
             const dateObject = new Date(eventToUpdate?.time);
-            let notformattedTime = dateObject?.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
-            console.log("🚀 ~ useEffect ~ notformattedTime:", notformattedTime)
-            let formattedTime = convertToESTFormat(eventToUpdate?.time);
-            console.log("🚀 ~ useEffect ~ formattedTime:", formattedTime)
-
-            console.log("🚀 ~ useEffect ~ formattedTime[1]:", formattedTime[1])
-            console.log("🚀 ~ useEffect ~ formattedTime[5]:", formattedTime[5])
+            let formattedTime = convertToESTFormat(eventToUpdate?.time)
 
             // convert 12hour AM/PM string to "HH:MM" to populate time input field
             if (formattedTime[1] !== ':') {
@@ -45,21 +39,16 @@ export default function EventFormModal() {
                 if (secondDigit < 8) {
                     secondDigit = Number(secondDigit) + 2
                     const secondDigitString = String(secondDigit)
-                    console.log("🚀 ~ useEffect ~ secondDigitString:", secondDigitString)
                     formattedTime = '1' + secondDigitString + formattedTime.slice(1,4)
                 } else {
                     secondDigit = Number(secondDigit) + 12
                     const secondDigitString = String(secondDigit)
                     formattedTime = secondDigitString + formattedTime.slice(1,4)
                 }
-
-
-
             } else {
                 formattedTime = '0' + formattedTime
                 formattedTime = formattedTime.slice(0,5)
             }
-            console.log("🚀 ~ useEffect ~ formattedTime:", formattedTime)
             setTime(formattedTime)
         }
     }, [eventToUpdate, isUpdateEventForm])
@@ -83,9 +72,8 @@ export default function EventFormModal() {
         if (isUpdateEventForm) {
             data = await dispatch(updateEvent(event))
         } else {
-            console.log("FIRST!!!")
+
             data = await dispatch(addEvent(event))
-            console.log('THIRD!!!!!')
         }
 
         if (data.errors) {
