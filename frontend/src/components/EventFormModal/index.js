@@ -4,6 +4,7 @@ import { useEventForm } from '../../context/eventForm';
 import {useDispatch} from 'react-redux'
 import { updateEvent, addEvent } from '../../store/events';
 import { useAccessibilitySettings } from '../../context/accessibility';
+import { convertToESTFormat } from '../Events/date_time_helpers.js'
 
 export default function EventFormModal() {
     const dispatch = useDispatch()
@@ -28,27 +29,56 @@ export default function EventFormModal() {
 
     useEffect(() => {
         if (isUpdateEventForm) {
-            setTitle(eventToUpdate?.title)
-            setDate(eventToUpdate?.date) // just date
-            setTime(eventToUpdate?.date) // just time
+            setTitle(eventToUpdate?.name)
+            setDate(eventToUpdate?.date)
             setLocation(eventToUpdate.location)
             setDescription(eventToUpdate.description)
+
+            const dateObject = new Date(eventToUpdate?.time);
+            let formattedTime = convertToESTFormat(eventToUpdate?.time)
+
+            // convert 12hour AM/PM string to "HH:MM" to populate time input field
+            if (formattedTime[1] !== ':') {
+                formattedTime = formattedTime.slice(0,5)
+            } else if (formattedTime[5] === 'P') {
+                let secondDigit = formattedTime[0]
+                if (secondDigit < 8) {
+                    secondDigit = Number(secondDigit) + 2
+                    const secondDigitString = String(secondDigit)
+                    formattedTime = '1' + secondDigitString + formattedTime.slice(1,4)
+                } else {
+                    secondDigit = Number(secondDigit) + 12
+                    const secondDigitString = String(secondDigit)
+                    formattedTime = secondDigitString + formattedTime.slice(1,4)
+                }
+            } else {
+                formattedTime = '0' + formattedTime
+                formattedTime = formattedTime.slice(0,5)
+            }
+            setTime(formattedTime)
         }
     }, [eventToUpdate, isUpdateEventForm])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        // const dateTime = new Date(`${date} at ${time}`)
+
         const event = {
-            title,
+            name: title,
             date,
             time,
             location,
-            description
+            description,
+            full: false
         }
+
+        if (isUpdateEventForm) event['id'] = eventToUpdate.id
+
         let data
         if (isUpdateEventForm) {
             data = await dispatch(updateEvent(event))
         } else {
+
             data = await dispatch(addEvent(event))
         }
 
@@ -59,15 +89,15 @@ export default function EventFormModal() {
             setEventToUpdate('')
             setShowEventForm(false)
         }
-        return;
+
     }
 
     const onClose = () => {
         setIsUpdateEventForm(false)
         setShowEventForm(false)
         setTitle('')
-        setDate('') // just date
-        setTime('') // just time
+        setDate('')
+        setTime('')
         setLocation('')
         setDescription('')
     }
@@ -142,7 +172,7 @@ export default function EventFormModal() {
                                 name="location"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
                                 placeholder='Location'
-                                value="location"
+                                value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                             >
                                 <option value="">Choose one</option>

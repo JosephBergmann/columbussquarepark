@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import { useAccessibilitySettings } from './context/accessibility';
 import Contact from './components/Contact';
 import Events from './components/Events';
+import { fetchAll } from './store/allData';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(authenticate()).then(() => setIsLoaded(true))
+        dispatch(fetchAll()).then(() => console.log('Fetched All'))
     }, [dispatch])
 
     return (

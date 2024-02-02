@@ -3,6 +3,7 @@ import parkImage from '../Home/gallery_images/image_1.jpeg'
 import { useEventForm } from '../../context/eventForm'
 import { useSelector } from 'react-redux'
 import { useAccessibilitySettings } from '../../context/accessibility';
+import { convertToESTFormat, formatDate } from './date_time_helpers.js'
 
 export default function SingleEvent({event}) {
     const { accessibilitySettings } = useAccessibilitySettings();
@@ -27,14 +28,8 @@ export default function SingleEvent({event}) {
 
     const eventTextClass = `lg:w-md xl:md my-2 ${darkMode && "text-white"} ${textSize && "text-lg"}`
 
-    const eventDate = event.date;
-    // Extract date
-    const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
-    const formattedDate = eventDate.toLocaleString('en-US', dateOptions);
-
-    // Extract time
-    const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-    const formattedTime = eventDate.toLocaleString('en-US', timeOptions);
+    const formattedDate = formatDate(event.date);
+    const formattedTime = convertToESTFormat(event.time);
 
     const updateOnClick = () => {
         setShowEventForm(true)
@@ -56,7 +51,8 @@ export default function SingleEvent({event}) {
                 </div>
                 <div className="w-11/12 p-4 md:p-2 md:ml-1 pt-4 md:mt-0 md:mr-4">
                     <p className={`font-bold text-2xl ${textSize && "text-3xl"} ${darkMode && "text-white"}`}> {event.title}</p>
-                    <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate} at {formattedTime}</p>
+                    <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate}</p>
+                    <p className={eventTextClass}><span className="font-bold">time: </span>{formattedTime}</p>
                     <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>
                     <p className={eventTextClass}><span className="font-bold">description: </span>{event.description}</p>
                 </div>

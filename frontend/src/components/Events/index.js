@@ -21,6 +21,7 @@ export default function Events() {
 
     const user = useSelector(state => state.session.user);
 
+    const events = useSelector(state => state.events.all)
     const {
         showEventForm,
         setShowEventForm,
@@ -31,8 +32,11 @@ export default function Events() {
     } = useEventForm()
 
     const subHeaderClass = `text-left underline underline-offset-8 tracking-widest text-2xl my-8 ${darkMode && "text-white"}`
-
-    const eventsMap = eventList.map(event => {
+    const eventsArray = Object.values(events)
+    if (!eventsArray.length) {
+        return null
+    }
+    const eventsMap = eventsArray.map(event => {
         return (
             <>
                 <SingleEvent event={event} />
