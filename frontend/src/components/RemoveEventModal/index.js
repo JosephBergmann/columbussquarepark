@@ -53,27 +53,25 @@ export default function RemoveEventModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
                 >
-                    <Dialog.Panel className={`bg-white ${darkMode && "bg-gray-700"} w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
+                    <Dialog.Panel className={`${darkMode ? "bg-gray-700" : "bg-white"} w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
                         <Dialog.Title
                             as="h1"
-                            className={`leading-6 text-gray-900 text-xl ${darkMode && "text-white"} ${textSize && "text-2xl"}`}
+                            className={`leading-6 text-gray-900 ${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"}`}
                         >
                             Remove Event
                         </Dialog.Title>
                         <div className="mt-2">
-                            <p className={`text-sm text-gray-500`}>
+                            <p className={`${textSize ? null : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                                 Are you sure you want to remove this event?
                             </p>
                         </div>
-                        <div className="mt-4">
-                            <div className='flex flex-col justify-center'>
-                                <button onClick={handleRemove} className='mt-4 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
-                                    Remove Event
-                                </button>
-                                <button onClick={() => setShowRemoveEvent(false)} className='mt-4 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
-                                    Cancel
-                                </button>
-                            </div>
+                        <div className='mt-6 flex flex-col gap-4'>
+                            <button onClick={handleRemove} className='rounded-lg bg-primary hover:bg-secondary active:bg-slate-200 px-6 py-2'>
+                                Remove Event
+                            </button>
+                            <button onClick={() => setShowRemoveEvent(false)} className='rounded-lg bg-slate-300 hover:bg-slate-400 active:bg-slate-200 px-6 py-2'>
+                                Cancel
+                            </button>
                         </div>
                     </Dialog.Panel>
                 </Transition.Child>

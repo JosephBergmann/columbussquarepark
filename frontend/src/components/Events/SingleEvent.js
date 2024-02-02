@@ -48,13 +48,13 @@ export default function SingleEvent({event}) {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6'>
-            <div className={`container sm:w-max rounded-lg border-2 border-slate-200 md:border-2 hover:shadow-lg p-2 ${darkMode && "border-none bg-gray-600 md:p-3 hover:bg-gray-500"} flex flex-col flex-grow align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16 overflow-hidden`}>
+        <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6 w-full'>
+            <div className={`container rounded-lg border-2 border-gray-300 md:border-2 hover:shadow-lg md:p-2 ${darkMode && "border-none bg-gray-600 hover:bg-gray-500"} flex flex-col flex-grow align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16 overflow-hidden`}>
                 <div className='md:hidden flex flex-col justify-between'>
                     <img className="w-full self-center max-w-96 xl:min-w-70 object-cover"
                         src={parkImage}/>
                 </div>
-                <div className="w-11/12 p-4 md:p-2 pt-4 md:mt-0 md:mr-4">
+                <div className="w-11/12 p-4 md:p-2 md:ml-1 pt-4 md:mt-0 md:mr-4">
                     <p className={`font-bold text-2xl ${textSize && "text-3xl"} ${darkMode && "text-white"}`}> {event.title}</p>
                     <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate} at {formattedTime}</p>
                     <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>

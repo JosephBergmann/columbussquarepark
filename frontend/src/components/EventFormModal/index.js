@@ -97,15 +97,15 @@ export default function EventFormModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
                 >
-                    <Dialog.Panel className={`bg-white ${darkMode && "bg-gray-700"} w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
+                    <Dialog.Panel className={`${darkMode ? "bg-gray-700" : "bg-white"} w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
                         <Dialog.Title
                             as="h1"
-                            className={`leading-6 text-gray-900 text-xl ${darkMode && "text-white"} ${textSize && "text-2xl"}`}
+                            className={`leading-6 text-gray-900 ${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"}`}
                         >
                             Add Event
                         </Dialog.Title>
                         <div className="mt-2">
-                            <p className={`text-sm text-gray-400`}>
+                            <p className={`${textSize ? null : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
                                 Please enter your event details below.
                             </p>
                         </div>

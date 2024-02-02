@@ -56,7 +56,7 @@ export default function LogoutModal() {
                                 Are you sure you want to log out?
                             </p>
                         </div>
-                        <div className="mt-6 flex justify-evenly">
+                        <div className="mt-6 flex flex-col gap-4">
                             <button onClick={() => handleLogout()} className='rounded-lg bg-primary hover:bg-secondary active:bg-slate-200 px-6 py-2'>
                                 Log Out
                             </button>
