@@ -27,8 +27,8 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'events/update',
     async (event, thunkAPI) => {
-        const res = await fetch(`/api/events/${event.id}/edit`, {
-            method: "UPDATE",
+        const res = await fetch(`/api/events/${event.id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -83,6 +83,8 @@ const eventSlice = createSlice({
         });
 
         builder.addCase(removeEvent.fulfilled, (state, action) => {
+            console.log('action.payload', action.payload)
+            delete state.all[action.payload.id]
         });
     }
 })

@@ -10,7 +10,7 @@ import RemoveEventModal from '../RemoveEventModal'
 
 export default function Events() {
     const user = useSelector(state => state.session.user)
-    const events = useSelector(state => state.events)
+    const events = useSelector(state => state.events.all)
     const {
         showEventForm,
         setShowEventForm,
@@ -21,10 +21,10 @@ export default function Events() {
     } = useEventForm()
 
     const subHeaderClass = 'text-left underline underline-offset-8 tracking-widest text-2xl my-8'
-    if (!Object.values(events).length) {
+    const eventsArray = Object.values(events)
+    if (!eventsArray.length) {
         return null
     }
-    const eventsArray = Object.values(events?.all)
     const eventsMap = eventsArray.map(event => {
         return (
             <>

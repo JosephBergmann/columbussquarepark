@@ -23,7 +23,7 @@ export default function SingleEvent({event}) {
     const eventTextClass = 'tracking-widest xxs:text-sm xs:text-md sm:text-md md:text-md lg:w-md xl:md my-2'
 
     const eventDate = event.date;
-    console.log('Event Date', event)
+    console.log('Event Date', event.date)
     // Extract date
     const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
     const formattedDate = eventDate.toLocaleString('en-US', dateOptions);

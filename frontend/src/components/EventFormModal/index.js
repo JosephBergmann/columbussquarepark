@@ -32,10 +32,14 @@ export default function EventFormModal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log('date', date)
+        console.log('time', time)
+        const dateTime = new Date(`${date} at ${time}`)
+        console.log(dateTime)
+
         const event = {
             name: title,
-            date,
-            time,
+            date: dateTime,
             location,
             description,
             full: false
@@ -57,7 +61,7 @@ export default function EventFormModal() {
             setEventToUpdate('')
             setShowEventForm(false)
         }
-        
+
     }
 
     const onClose = () => {
