@@ -19,7 +19,7 @@ export default function Events() {
         setIsUpdateEventForm
     } = useEventForm()
 
-    const subHeaderClass = 'text-left underline underline-offset-8 tracking-widest xxs:text-md xs:text-lg sm:text-xl md:text-2xl lg:w-3xl xl:4xl my-8'
+    const subHeaderClass = 'text-left underline underline-offset-8 tracking-widest text-2xl my-8'
 
     const eventsMap = eventList.map(event => {
         return (
@@ -30,7 +30,7 @@ export default function Events() {
     })
 
     return (
-        <div className="flex gap-16">
+        <div className="flex justify-center">
             <div>
                 <div className="flex justify-between gap-8">
                     <h2 className={subHeaderClass} >Upcoming Events</h2>
