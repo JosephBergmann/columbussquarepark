@@ -16,6 +16,7 @@ export const addEvent = createAsyncThunk(
         })
         if (res.ok) {
             const data = await res.json()
+            console.log("SECOND!!!")
             return data
         } else {
             const data = await res.json()
@@ -27,8 +28,8 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'events/update',
     async (event, thunkAPI) => {
-        const res = await fetch(`/api/events/${event.id}/edit`, {
-            method: "UPDATE",
+        const res = await fetch(`/api/events/${event.id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -70,19 +71,19 @@ const eventSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAll.fulfilled, (state, action) => {
-            console.log('PAYLOAD!!', action.payload.events)
             state.all = action.payload.events
         });
 
         builder.addCase(addEvent.fulfilled, (state, action) => {
-            state.all[action.payload.id] = action.payload
+            state.all[action.payload.event.id] = action.payload.event
         });
 
         builder.addCase(updateEvent.fulfilled, (state, action) => {
-            state.all[action.payload.id] = action.payload
+            state.all[action.payload.event.id] = action.payload.event
         });
 
         builder.addCase(removeEvent.fulfilled, (state, action) => {
+            delete state.all[action.payload.id]
         });
     }
 })

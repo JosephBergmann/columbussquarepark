@@ -2,6 +2,7 @@ import eventList from './temp_events'
 import parkImage from '../Home/gallery_images/image_1.jpeg'
 import { useEventForm } from '../../context/eventForm'
 import { useSelector } from 'react-redux'
+import { convertToESTFormat, formatDate } from './date_time_helpers.js'
 
 export default function SingleEvent({event}) {
     const user = useSelector(state => state.session.user)
@@ -22,15 +23,8 @@ export default function SingleEvent({event}) {
 
     const eventTextClass = 'tracking-widest xxs:text-sm xs:text-md sm:text-md md:text-md lg:w-md xl:md my-2'
 
-    const eventDate = event.date;
-    console.log('Event Date', event)
-    // Extract date
-    const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
-    const formattedDate = eventDate.toLocaleString('en-US', dateOptions);
-
-    // Extract time
-    const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-    const formattedTime = eventDate.toLocaleString('en-US', timeOptions);
+    const formattedDate = formatDate(event.date);
+    const formattedTime = convertToESTFormat(event.time);
 
     const updateOnClick = () => {
         setShowEventForm(true)
@@ -47,7 +41,8 @@ export default function SingleEvent({event}) {
         <div className="container sm:w-max border-solid border-2 border-black my-4 p-4 flex flex-col align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16">
             <div className="w-11/12">
                 <p className="tracking-widest text-2xl font-bold"> {event.name}</p>
-                <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate} at {formattedTime}</p>
+                <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate}</p>
+                <p className={eventTextClass}><span className="font-bold">time: </span>{formattedTime}</p>
                 <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>
                 <p className={eventTextClass}><span className="font-bold">description: </span>{event.description}</p>
             </div>
