@@ -22,7 +22,7 @@ export default function EventFormModal() {
 
     useEffect(() => {
         if (isUpdateEventForm) {
-            setTitle(eventToUpdate?.title)
+            setTitle(eventToUpdate?.name)
             setDate(eventToUpdate?.date) // just date
             setTime(eventToUpdate?.date) // just time
             setLocation(eventToUpdate.location)
