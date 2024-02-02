@@ -10,6 +10,5 @@ test('should render home component', () => {
 
 test('matches snapshot', () => {
     const tree = renderer.create(<Home />).toJSON();
-    console.log(tree);
     expect(tree).toMatchSnapshot();
 })

@@ -2,6 +2,7 @@ import eventList from './temp_events'
 import parkImage from '../Home/gallery_images/image_1.jpeg'
 import { useEventForm } from '../../context/eventForm'
 import { useSelector } from 'react-redux'
+import { convertToESTFormat } from './date_time_helpers.js'
 
 export default function SingleEvent({event}) {
     const user = useSelector(state => state.session.user)
@@ -23,14 +24,16 @@ export default function SingleEvent({event}) {
     const eventTextClass = 'tracking-widest xxs:text-sm xs:text-md sm:text-md md:text-md lg:w-md xl:md my-2'
 
     const eventDate = event.date;
-    console.log('Event Date', event.date)
     // Extract date
     const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
-    const formattedDate = eventDate.toLocaleString('en-US', dateOptions);
+    const formattedDate = eventDate?.toLocaleString('en-US', dateOptions);
+    // convert time using helper
+    const formattedTime = convertToESTFormat(event.time);
 
-    // Extract time
-    const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-    const formattedTime = eventDate.toLocaleString('en-US', timeOptions);
+
+
+
+
 
     const updateOnClick = () => {
         setShowEventForm(true)
