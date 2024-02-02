@@ -59,7 +59,7 @@ export const logout = createAsyncThunk(
 
 const sessionSlice = createSlice({
     name: 'session',
-    initialState: {user: null},
+    initialState: {user: null, error: null},
     reducers: {
         // login: (state, action) => {
         //     state.user = action.payload
@@ -70,11 +70,16 @@ const sessionSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(authenticate.fulfilled, (state, action) => {
-            state.user = action.payload
+            state.user = action.payload.user
         })
 
         builder.addCase(login.fulfilled, (state, action) => {
-            state.user = action.payload
+            state.user = action.payload.user
+        })
+
+        builder.addCase(login.rejected, (state, action) => {
+            state.user = null
+            state.error = action.payload.error
         })
 
         builder.addCase(logout.fulfilled, (state, action) => {

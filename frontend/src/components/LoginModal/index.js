@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useLogin } from '../../context/login';
@@ -14,12 +15,37 @@ export default function LoginModal() {
     const { showLogin, setShowLogin } = useLogin()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const [errors, setErrors] = useState("");
+
+    const user = useSelector(state => state.session.user)
+    const errors = useSelector(state => state.session.errors)
 
     const handleSubmit = async (email, password) => {
         const credentials = {email, password}
         const data = await dispatch(login(credentials))
+            // .then((res) => {
+            //     console.log(eo)
+            //     if (res.errors) {
+            //         console.log("helloooooo")
+            //         setErrors("Invalid credentials");
+            //     } else {
+            //         setErrors("");
+            //         setShowLogin(false);
+            //     }
+            // });
+        // if (user) {
+        //     console.log("HELLLOOOO")
+        //     setErrors("Invalid credentials");
+        // } else {
+        //     setErrors("");
+        //     setShowLogin(false);
+        // }
         return;
     }
+
+    useEffect(() => {
+        if (user) setShowLogin(false)
+    }, [user])
 
     return (
         <Transition appear show={showLogin} as={Fragment}>
@@ -75,6 +101,11 @@ export default function LoginModal() {
                                 placeholder='Password'
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            {errors &&
+                                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md my-4">
+                                    <p className="text-sm font-semibold">Invalid credentials.</p>
+                                </div>
+                            }
                             <div className='flex justify-center'>
                                 <button onClick={() => handleSubmit(email, password)} className={`mt-10 py-3 px-8 bg-fun rounded-xl active:bg-gray-300 ${textSize ? 'text-lg' : null}`}>
                                     Login
