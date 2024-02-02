@@ -5,15 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* ~~Ruby version~~
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* ~~Database creation~~
 
-* Database initialization
+* ~~Database initialization~~
 
 * How to run the test suite
 
@@ -33,7 +33,7 @@ The revitalized Columbus Square Park website is a beacon of modern accessibility
 * [Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#preview)
 * [Database Schema](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#database-schema)
 * [Wireframes](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#wireframes)
-* [Technology Used]
+* [Technology Used](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#technology-used)
 * [Getting Started](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#getting-started)
 
 ## Preview
@@ -54,9 +54,25 @@ Created using Figma
 <img width="1512" alt="ContactPage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/15b9df91-dd73-45e2-9585-0070f1fc384e">
 
 ## Technology Used
-Backend: Ruby 3.1.1, PostgreSQL 15.1
-FrontEnd: Javascript, Tailwind CSS
+* <ins>Backend:</ins> Ruby 3.1.1, PostgreSQL 15.1
+* <ins>FrontEnd:</ins> Javascript, Tailwind CSS
 
 ## Getting Started
--Insert installation and dependency instructions
+* Clone this repository: [Columbus Square Park](https://github.com/JosephBergmann/columbussquarepark.git)
+* From the root directory, run the following command in the terminal:
+```bundle install```
+* Once installed create, migrate and seed database using the ruby commands:
+```rails db:create```
+```rails db:migrate```
+```rails db:seed```
+* Start the server:
+```rails s```
+* CD into the frontend folder, run the followign command in the terminal:
+```npm i```
+* Start the server in a separate port with the command:
+```npm start```
+
+
+
+
   
