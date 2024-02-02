@@ -23,28 +23,17 @@ export default function LoginModal() {
     const handleSubmit = async (email, password) => {
         const credentials = {email, password}
         const data = await dispatch(login(credentials))
-            // .then((res) => {
-            //     console.log(eo)
-            //     if (res.errors) {
-            //         console.log("helloooooo")
-            //         setErrors("Invalid credentials");
-            //     } else {
-            //         setErrors("");
-            //         setShowLogin(false);
-            //     }
-            // });
-        // if (user) {
-        //     console.log("HELLLOOOO")
-        //     setErrors("Invalid credentials");
-        // } else {
-        //     setErrors("");
-        //     setShowLogin(false);
-        // }
         return;
     }
 
     useEffect(() => {
-        if (user) setShowLogin(false)
+        if (user) {
+            const timeout = setTimeout(() => {
+              setShowLogin(false);
+            }, 2000);
+
+            return () => clearTimeout(timeout);
+          }
     }, [user])
 
     return (
@@ -85,6 +74,18 @@ export default function LoginModal() {
                             </p>
                         </div>
                         <div className="mt-4">
+                            {errors &&
+                                <div className="flex gap-2 items-center bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md my-4">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    <p className="text-sm font-semibold">Invalid credentials.</p>
+                                </div>
+                            }
+                            {user &&
+                                <div className="flex gap-2 items-center bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-md my-4">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p className="text-sm font-semibold">Success!</p>
+                                </div>
+                            }
                             <input
                                 type="email"
                                 id="email"
@@ -101,11 +102,6 @@ export default function LoginModal() {
                                 placeholder='Password'
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            {errors &&
-                                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md my-4">
-                                    <p className="text-sm font-semibold">Invalid credentials.</p>
-                                </div>
-                            }
                             <div className='flex justify-center'>
                                 <button onClick={() => handleSubmit(email, password)} className={`mt-10 py-3 px-8 bg-fun rounded-xl active:bg-gray-300 ${textSize ? 'text-lg' : null}`}>
                                     Login

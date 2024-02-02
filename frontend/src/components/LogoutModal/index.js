@@ -56,11 +56,11 @@ export default function LogoutModal() {
                                 Are you sure you want to log out?
                             </p>
                         </div>
-                        <div className="mt-4">
-                            <button onClick={() => handleLogout()} className='rounded bg-primary hover:bg-secondary active:bg-slate-200'>
+                        <div className="mt-6 flex justify-evenly">
+                            <button onClick={() => handleLogout()} className='rounded-lg bg-primary hover:bg-secondary active:bg-slate-200 px-6 py-2'>
                                 Log Out
                             </button>
-                            <button onClick={() => setShowLogout(false)} className='rounded bg-slate-300 hover:bg-slate-400 active:bg-slate-200'>
+                            <button onClick={() => setShowLogout(false)} className='rounded-lg bg-slate-300 hover:bg-slate-400 active:bg-slate-200 px-6 py-2'>
                                 Cancel
                             </button>
                         </div>
