@@ -28,12 +28,12 @@ const App = () => {
         <Router>
             <div className={`${darkMode && 'bg-gray-700'}`}>
                 <Navigation />
-                <div className={`flex-grow pt-32 md:pt-48 md:px-32`}>
+                <div className={`flex-grow pt-32 px-4 md:pt-48 md:px-32`}>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/About" element={<About />} />
+                        <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/Events" element={<Events />} />
+                        <Route path="/events" element={<Events />} />
                     {/* Other routes can be added here */}
                     </Routes>
                 </div>

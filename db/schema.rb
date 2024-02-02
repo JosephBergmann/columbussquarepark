@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_31_213133) do
 
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
-    t.text "description"
+    t.string "description"
     t.boolean "full", null: false
     t.date "date", null: false
     t.datetime "created_at", null: false
