@@ -1,6 +1,7 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useAccessibilitySettings } from '../../context/accessibility';
+import { useNavigation } from '../../context/navigation';
 import DogPark from './dogpark';
 import GardenPolicy from './garden';
 import cspMap from './csp-map.jpg';
@@ -11,11 +12,16 @@ import cspMap from './csp-map.jpg';
 export default function About() {
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
+    const { setPage } = useNavigation();
 
     const [aboutView, setAboutView] = useState('map')
 
+    useEffect(() => {
+        setPage('about')
+    }, [])
+
     return (
-        <div className="mt-6 mb-20">
+        <div className="mt-6 mb-20 px-4">
             <div className="my-4 mb-10">
                 <h1 className={`${darkMode && "text-white"} ${textSize ? "text-3xl" : "text-2xl"} leading-6 pb-4`}>About</h1>
                 <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
@@ -57,7 +63,7 @@ export default function About() {
                         </Tab>
                     </Tab.List>
                 </Tab.Group>
-                <div className={`rounded-xl bg-slate-200 mt-4 mb-10 ${darkMode && "bg-gray-800"}`}>
+                <div className={`rounded-xl mt-4 mb-10 ${darkMode ? "bg-gray-800" : "bg-slate-200"}`}>
                     {aboutView === 'dog' && <DogPark />}
                     {aboutView === 'garden' && <GardenPolicy />}
                     {aboutView === 'map' && <div className='p-8 flex justify-center'>

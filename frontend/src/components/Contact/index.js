@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useAccessibilitySettings } from '../../context/accessibility';
+import { useNavigation } from '../../context/navigation';
 
 export default function Contact() {
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
+    const { setPage } = useNavigation();
+
+    useEffect(() => {
+        setPage('contact')
+    }, [])
 
     return (
         <div className='mt-10 mb-36'>

@@ -30,7 +30,7 @@ export default function LoginModal() {
         if (user) {
             const timeout = setTimeout(() => {
               setShowLogin(false);
-            }, 2000);
+            }, 1000);
 
             return () => clearTimeout(timeout);
           }
