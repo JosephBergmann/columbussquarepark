@@ -30,10 +30,11 @@ The revitalized Columbus Square Park website is a beacon of modern accessibility
 
 ## Table of Contents
 
-* Preview
-* Database Schema
-* Wireframes
-* Getting Started
+* [Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#preview)
+* [Database Schema](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#database-schema)
+* [Wireframes](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#wireframes)
+* [Technology Used]
+* [Getting Started](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#getting-started)
 
 ## Preview
 -Insert preview images
@@ -44,7 +45,6 @@ The revitalized Columbus Square Park website is a beacon of modern accessibility
 ## Wireframes
 Created using Figma
 
-<img width="1512" alt="SplashPage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/a519b5c4-c54f-4323-8d4b-6304ba3f47c9">
 <img width="1512" alt="Homepage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/7ebbd388-06f0-463f-a250-b6959c1693f4">
 <img width="1512" alt="AboutPage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/0c148ae7-f67f-472e-98b4-fdc140e7c7e0">
 <img width="1512" alt="DogParkRules" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/7656d95c-f6cf-4371-8aed-17677a6cadba">
@@ -53,6 +53,9 @@ Created using Figma
 <img width="1512" alt="DonationPage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/e58071bb-43b9-4ad0-8d20-52931871d537">
 <img width="1512" alt="ContactPage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/15b9df91-dd73-45e2-9585-0070f1fc384e">
 
+## Technology Used
+Backend: Ruby 3.1.1, PostgreSQL 15.1
+FrontEnd: Javascript, Tailwind CSS
 
 ## Getting Started
 -Insert installation and dependency instructions
