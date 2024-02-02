@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SingleEvent from './SingleEvent'
 import eventList from './temp_events'
 import EventCalendar from './EventCalendar'
@@ -7,11 +7,17 @@ import { useEventForm } from '../../context/eventForm'
 import EventFormModal from '../EventFormModal'
 import RemoveEventModal from '../RemoveEventModal'
 import { useAccessibilitySettings } from '../../context/accessibility';
+import { useNavigation } from '../../context/navigation'
 
 
 export default function Events() {
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
+    const { setPage } = useNavigation();
+
+    useEffect(() => {
+        setPage('events')
+    }, [])
 
     const user = useSelector(state => state.session.user);
 

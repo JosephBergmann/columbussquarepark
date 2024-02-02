@@ -4,6 +4,7 @@ import { Menu, Transition } from '@headlessui/react';
 import MobileLogo from './mobile-logo';
 import logo from './csp-logo.gif';
 import { useAccessibilityModal, useAccessibilitySettings } from '../../context/accessibility';
+import { useNavigation } from '../../context/navigation';
 import AccessibilityModal from '../AccessibilityModal';
 
 export default function Navigation() {
@@ -11,10 +12,10 @@ export default function Navigation() {
 
     const [openMobileNav, setOpenMobileNav] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
-    const [page, setPage] = useState('about')
     const {showAccessibility, setShowAccessibility} = useAccessibilityModal();
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
+    const { page, setPage } = useNavigation();
 
     return (
         <div className=''>
@@ -32,22 +33,22 @@ export default function Navigation() {
                         </button>
                     </div>
                     <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md z-10">
-                        <button onClick={() => {navigate("/"); setPage("home")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'home' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'home' && 'bg-fun text-white'}`}>
                             Home
                         </button>
-                        <button onClick={() => {navigate("/about"); setPage("about")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'about' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/about")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'about' && 'bg-fun text-white'}`}>
                             About
                         </button>
-                        <button onClick={() => {navigate("/Events"); setPage("events")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'events' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/events")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'events' && 'bg-fun text-white'}`}>
                             Events
                         </button>
-                        {/* <button onClick={() => {navigate("/programs"); setPage("programs")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'home' && 'bg-fun text-white'}`}>
+                        {/* <button onClick={() => {navigate("/programs")ms")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'home' && 'bg-fun text-white'}`}>
                             Programs
                         </button> */}
-                        <button onClick={() => {navigate("/Gallery"); setPage("gallery")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'gallery' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/gallery")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'gallery' && 'bg-fun text-white'}`}>
                             Gallery
                         </button>
-                        <button onClick={() => {navigate("/contact"); setPage("contact")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'contact' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/contact")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'contact' && 'bg-fun text-white'}`}>
                             Contact
                         </button>
                     </div>

@@ -164,7 +164,7 @@ export default function EventFormModal() {
                             />
                             <div className='flex justify-center'>
                                 <button type='submit' className='mt-4 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
-                                    submit
+                                    {isUpdateEventForm ? "Update" : "Create"}
                                 </button>
                             </div>
                         </form>

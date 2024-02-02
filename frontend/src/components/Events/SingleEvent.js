@@ -68,13 +68,13 @@ export default function SingleEvent({event}) {
             {user && <div className="flex flex-row md:flex-col justify-end md:justify-start gap-2 mt-1">
                 <button
                     onClick={updateOnClick}
-                    className="h-10 w-10 text-fun rounded-lg border border-fun active:bg-secondary active:border active:border-white"
+                    className={`h-10 w-10 text-yellow-500 rounded-lg border border-yellow-500 ${darkMode ? "hover:bg-gray-600" : "hover:bg-gray-200"} active:bg-secondary active:border active:border-white`}
                 >
                     <i className="fa-solid fa-pen-to-square"></i>
                 </button>
                 <button
                     onClick={removeOnClick}
-                    className="h-10 w-10 text-red-500 rounded-lg border border-red-500"
+                    className={`h-10 w-10 text-red-500 rounded-lg border border-red-500 ${darkMode ? "hover:bg-gray-600" : "hover:bg-gray-200"}`}
                 >
                     <i class="fa-solid fa-trash"></i>
                 </button>

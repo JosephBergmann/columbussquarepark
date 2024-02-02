@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AccessibilityProvider } from "./context/accessibility.js"
 import { LoginProvider } from "./context/login.js"
 import { EventFormProvider } from './context/eventForm.js';
+import { NavigationProvider } from './context/navigation';
 
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
@@ -22,11 +23,13 @@ root.render(
   <React.StrictMode>
     <EventFormProvider>
       <AccessibilityProvider>
-        <LoginProvider>
-          <Provider store={store}>
-            <App />
-          </Provider>
-        </LoginProvider>
+        <NavigationProvider>
+          <LoginProvider>
+            <Provider store={store}>
+              <App />
+            </Provider>
+          </LoginProvider>
+        </NavigationProvider>
       </AccessibilityProvider>
     </EventFormProvider>
   </React.StrictMode>
