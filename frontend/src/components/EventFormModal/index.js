@@ -33,12 +33,16 @@ export default function EventFormModal() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const event = {
-            title,
+            name: title,
             date,
             time,
             location,
-            description
+            description,
+            full: false
         }
+
+        if (isUpdateEventForm) event['id'] = eventToUpdate.id
+
         let data
         if (isUpdateEventForm) {
             data = await dispatch(updateEvent(event))
@@ -53,7 +57,7 @@ export default function EventFormModal() {
             setEventToUpdate('')
             setShowEventForm(false)
         }
-        return;
+        
     }
 
     const onClose = () => {
@@ -136,7 +140,7 @@ export default function EventFormModal() {
                                 name="location"
                                 className="my-2 p-2 border border-gray-300 rounded-md w-full"
                                 placeholder='Location'
-                                value="location"
+                                value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                             >
                                 <option value="">Choose one</option>

@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 export const addEvent = createAsyncThunk(
     'events/add',
     async (event, thunkAPI) => {
-        const res = await fetch("", {
+        const res = await fetch("/api/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'events/update',
     async (event, thunkAPI) => {
-        const res = await fetch("", {
+        const res = await fetch(`/api/events/${event.id}/edit`, {
             method: "UPDATE",
             headers: {
                 "Content-Type": "application/json",
@@ -48,8 +48,8 @@ export const updateEvent = createAsyncThunk(
 
 export const removeEvent = createAsyncThunk(
     'events/remove',
-    async (event, thunkAPI) => {
-        const res = await fetch("", {
+    async (eventId, thunkAPI) => {
+        const res = await fetch(`/api/events/${eventId}`, {
             method: "DELETE",
         })
         if (res.ok) {
@@ -78,19 +78,22 @@ const eventSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase('allData/getAllData', (state, action) => {
-            state.events = action.payload.events
+            state = action.payload.events
         });
 
         builder.addCase(addEvent.fulfilled, (state, action) => {
-            state.events[action.payload.id] = action.payload
+            console.log('state', state)
+            console.log('action', action)
+
+            state[action.payload.event.id] = action.payload.event
         });
 
         builder.addCase(updateEvent.fulfilled, (state, action) => {
-            state.events[action.payload.id] = action.payload
+            state[action.payload.event.id] = action.payload
         });
 
         builder.addCase(removeEvent.fulfilled, (state, action) => {
-            delete state.events[action.payload.id]
+            delete state[action.payload.event.id]
         });
     }
 })
