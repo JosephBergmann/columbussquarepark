@@ -12,14 +12,14 @@ const ImageCarousel = ({ images }) => {
         <Swiper
             spaceBetween={10}
             slidesPerView={1}
-            modules={[Navigation]}
+            modules={[Navigation, Pagination]}
             navigation={true}
             pagination={{ dynamicBullets: true }}
             style={{ width: '100%', height: '100%' }}
         >
             {images.map((image, index) => (
                 <SwiperSlide key={index}>
-                    <img src={image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={image} style={{ width: '100%', height: '90%', objectFit: 'cover' }} />
                 </SwiperSlide>
             ))}
         </Swiper>

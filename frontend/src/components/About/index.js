@@ -21,7 +21,7 @@ export default function About() {
     }, [])
 
     return (
-        <div className="mt-6 mb-20">
+        <div className="mt-6 mb-20 px-4">
             <div className="my-4 mb-10">
                 <h1 className={`${darkMode && "text-white"} ${textSize ? "text-3xl" : "text-2xl"} leading-6 pb-4`}>About</h1>
                 <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
