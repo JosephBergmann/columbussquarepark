@@ -43,15 +43,15 @@ export default function SingleEvent({event}) {
     }
 
     return (
-        <div className="container border-solid border-2 border-black my-4 p-4 flex">
-            <div>
-                <p className={eventTextClass}><span className="font-bold">title: </span> {event.title}</p>
+        <div className="container sm:w-max border-solid border-2 border-black my-4 p-4 flex flex-col align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16">
+            <div className="w-11/12">
+                <p className="tracking-widest text-2xl font-bold"> {event.title}</p>
                 <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate} at {formattedTime}</p>
                 <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>
                 <p className={eventTextClass}><span className="font-bold">description: </span>{event.description}</p>
             </div>
             <div className='flex flex-col justify-between'>
-                <img className="w-full xxs:max-w-5 xs:max-w-10 sm:min-w-36 md:min-w-36 lg:w-52 xl:min-w-70 rounded-sm"
+                <img className="w-full self-center max-w-96 xl:min-w-70 rounded-sm"
                 src={parkImage}/>
                 <div className="flex justify-end gap-2">
                     {user && <button
