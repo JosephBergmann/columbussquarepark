@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import { fetchAll } from './allData'
 
 // const initialState = {
 //     images: {}
@@ -54,7 +55,7 @@ const imageSlice = createSlice({
         // }
     },
     extraReducers: (builder) => {
-        builder.addCase('allData/getAllData', (state, action) => {
+        builder.addCase(fetchAll.fulfilled, (state, action) => {
             state.images = action.payload.images
         });
 

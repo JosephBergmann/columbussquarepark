@@ -21,8 +21,11 @@ export default function Events() {
     } = useEventForm()
 
     const subHeaderClass = 'text-left underline underline-offset-8 tracking-widest text-2xl my-8'
-
-    const eventsMap = eventList.map(event => {
+    if (!Object.values(events).length) {
+        return null
+    }
+    const eventsArray = Object.values(events?.all)
+    const eventsMap = eventsArray.map(event => {
         return (
             <>
                 <SingleEvent event={event} />

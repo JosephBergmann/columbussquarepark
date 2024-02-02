@@ -10,3 +10,16 @@ User.create!(
     email: 'admin@joe.com',
     password: 'password'
 )
+
+# Image.create!(
+#     url:'https://tse1.mm.bing.net/th?id=OIP.0u8ZR7XuEI6R8sco9JLPPwHaEt&pid=Api',
+#     poster_id: 1
+# )
+
+Event.create!(
+    name: 'Jamboree in the Park',
+    description: 'Jam out with Pam',
+    full: false,
+    date: Time.now,
+    location: '12th Street'
+)
