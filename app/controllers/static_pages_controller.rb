@@ -7,6 +7,6 @@ class StaticPagesController < ActionController::Base
     def get_all_data
         debugger
         @data = {events: Event.all}
-        render :all_data
+        render '/all_data'
     end
 end
