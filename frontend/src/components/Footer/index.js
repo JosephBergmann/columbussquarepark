@@ -1,15 +1,28 @@
 import React, { useState, Fragment } from 'react';
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import MobileLogo from '../Navigation/mobile-logo';
 import LoginModal from '../LoginModal';
-import { useLogin } from '../../context/login';
+import { useLogin, useLogout } from '../../context/login';
+import LogoutModal from '../LogoutModal';
 
 export default function Footer() {
-    const { showLogin, setShowLogin } = useLogin()
+    const { showLogin, setShowLogin } = useLogin();
+    const { showLogout, setShowLogout } = useLogout();
+
+    const user = useSelector(state => state.session.user)
+
+    const handleUser = () => {
+        if (user) {
+            setShowLogout(true)
+        } else {
+            setShowLogin(true)
+        }
+    }
 
     return (
         <div className="w-full bg-primary">
-            <div className='flex flex-col md:flex-row justify-center md:gap-32 gap-16 px-8 py-12'>
+            <div className='flex flex-col md:flex-row justify-center md:justify-evenly px-8 py-12 gap-16 md:gap-0'>
                 {/* <div className='flex flex-col max-w-80 gap-3 px-3'>
                     <h2 className='text-yellow-300 text-2xl font-newspaper'>About</h2>
                     <p className='text-white pr-3'>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
@@ -41,13 +54,14 @@ export default function Footer() {
                 </div>
                 <div className='flex flex-col gap-3 px-3'>
                     <h2 className='text-2xl font-newspaper'>Admin</h2>
-                    <button onClick={() => setShowLogin(true)} className='py-2 px-4 md:px-8 bg-yellow-500 text-white rounded-xl border border-yellow-500 active:bg-slate-200 active:border active:border-slate-200'>
-                        Log in
+                    <button onClick={() => handleUser()} className='py-2 px-4 md:px-8 bg-yellow-500 text-white rounded-xl border border-yellow-500 active:bg-slate-200 active:border active:border-slate-200 min-w-min whitespace-nowrap'>
+                        {user ? "Log Out" : "Log In"}
                     </button>
                 </div>
             </div>
 
             {showLogin && <LoginModal />}
+            {showLogout && <LogoutModal />}
         </div>
     )
 }

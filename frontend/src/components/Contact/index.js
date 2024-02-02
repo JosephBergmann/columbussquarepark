@@ -28,7 +28,7 @@ export default function Contact() {
                         <h1 className={`${darkMode && "text-white"} ${textSize ? "text-2xl" : "text-xl"} underline leading-6 pb-6`}>Contact Info</h1>
                         <div className='mb-6'>
                             <ul>
-                                <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null}`}>Columbus Square Park</li>
+                                <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} font-bold`}>Columbus Square Park</li>
                                 <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null}`}>Recreation Center</li>
                                 <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null}`}>12th and Wharton</li>
                                 <li className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null}`}>Philadelphia, PA 19147</li>
