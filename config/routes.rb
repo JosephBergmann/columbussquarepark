@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :events, only: [:create, :destroy, :update, :index, :show]
     # resources :organizers
 
-    get '*path', to: "static_pages#frontend_index"
-
   end
+
+  get '/api/getAllData', to: "static_pages#get_all_data"
+  get '*path', to: "static_pages#frontend_index"
 end
