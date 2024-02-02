@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useLogin } from '../../context/login';
@@ -14,12 +15,26 @@ export default function LoginModal() {
     const { showLogin, setShowLogin } = useLogin()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const [errors, setErrors] = useState("");
+
+    const user = useSelector(state => state.session.user)
+    const errors = useSelector(state => state.session.errors)
 
     const handleSubmit = async (email, password) => {
         const credentials = {email, password}
         const data = await dispatch(login(credentials))
         return;
     }
+
+    useEffect(() => {
+        if (user) {
+            const timeout = setTimeout(() => {
+              setShowLogin(false);
+            }, 2000);
+
+            return () => clearTimeout(timeout);
+          }
+    }, [user])
 
     return (
         <Transition appear show={showLogin} as={Fragment}>
@@ -59,6 +74,18 @@ export default function LoginModal() {
                             </p>
                         </div>
                         <div className="mt-4">
+                            {errors &&
+                                <div className="flex gap-2 items-center bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md my-4">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    <p className="text-sm font-semibold">Invalid credentials.</p>
+                                </div>
+                            }
+                            {user &&
+                                <div className="flex gap-2 items-center bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-md my-4">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p className="text-sm font-semibold">Success!</p>
+                                </div>
+                            }
                             <input
                                 type="email"
                                 id="email"
