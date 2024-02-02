@@ -31,9 +31,9 @@ const App = () => {
                 <div className={`flex-grow pt-32 md:pt-48 md:px-32`}>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/About" element={<About />} />
+                        <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/Events" element={<Events />} />
+                        <Route path="/events" element={<Events />} />
                     {/* Other routes can be added here */}
                     </Routes>
                 </div>
