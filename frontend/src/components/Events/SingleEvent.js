@@ -49,7 +49,7 @@ export default function SingleEvent({event}) {
 
     return (
         <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6'>
-            <div className="container sm:w-max rounded-lg border-2 border-slate-200 md:border-2 hover:shadow-lg md:p-2 flex flex-col flex-grow align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16">
+            <div className={`container sm:w-max rounded-lg border-2 border-slate-200 md:border-2 hover:shadow-lg p-2 ${darkMode && "border-none bg-gray-600 md:p-3 hover:bg-gray-500"} flex flex-col flex-grow align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16 overflow-hidden`}>
                 <div className='md:hidden flex flex-col justify-between'>
                     <img className="w-full self-center max-w-96 xl:min-w-70 object-cover"
                         src={parkImage}/>

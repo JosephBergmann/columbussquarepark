@@ -3,14 +3,20 @@ import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import { useEventForm } from '../../context/eventForm';
 import {useDispatch} from 'react-redux'
 import { updateEvent, addEvent } from '../../store/events';
+import { useAccessibilitySettings } from '../../context/accessibility';
 
 export default function EventFormModal() {
     const dispatch = useDispatch()
+
+    const { accessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
+
     const [title, setTitle] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
+
     const {
         showEventForm,
         setShowEventForm,
@@ -78,10 +84,10 @@ export default function EventFormModal() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="fixed inset-0 bg-black/25" />
+                <div className={`fixed inset-0 bg-black/25 ${darkMode && "bg-white/25"}`} />
             </Transition.Child>
 
-            <div className="fixed inset-0 overflow-y-auto flex items-center justify-center">
+            <div className={`fixed inset-0 overflow-y-auto flex items-center justify-center`}>
                 <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -91,15 +97,15 @@ export default function EventFormModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
                 >
-                    <Dialog.Panel className={`bg-white w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
+                    <Dialog.Panel className={`bg-white ${darkMode && "bg-gray-700"} w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
                         <Dialog.Title
                             as="h1"
-                            className="leading-6 text-gray-900 text-xl"
+                            className={`leading-6 text-gray-900 text-xl ${darkMode && "text-white"} ${textSize && "text-2xl"}`}
                         >
                             Add Event
                         </Dialog.Title>
                         <div className="mt-2">
-                            <p className={`text-sm text-gray-500`}>
+                            <p className={`text-sm text-gray-400`}>
                                 Please enter your event details below.
                             </p>
                         </div>

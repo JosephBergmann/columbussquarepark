@@ -4,9 +4,14 @@ import { Dialog, Transition, Switch, Tab } from '@headlessui/react';
 import {useDispatch} from 'react-redux'
 import { useEventForm } from '../../context/eventForm';
 import { removeEvent } from '../../store/events';
+import { useAccessibilitySettings } from '../../context/accessibility';
 
 export default function RemoveEventModal() {
+    const { accessibilitySettings } = useAccessibilitySettings();
+    const { darkMode, textSize } = accessibilitySettings;
+
     const dispatch = useDispatch()
+
     const {
         showRemoveEvent,
         setShowRemoveEvent,
@@ -35,7 +40,7 @@ export default function RemoveEventModal() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="fixed inset-0 bg-black/25" />
+                <div className={`fixed inset-0 bg-black/25 ${darkMode && "bg-white/25"}`} />
             </Transition.Child>
 
             <div className="fixed inset-0 overflow-y-auto flex items-center justify-center">
@@ -48,10 +53,10 @@ export default function RemoveEventModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
                 >
-                    <Dialog.Panel className={`bg-white w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
+                    <Dialog.Panel className={`bg-white ${darkMode && "bg-gray-700"} w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all`}>
                         <Dialog.Title
                             as="h1"
-                            className="leading-6 text-gray-900 text-xl"
+                            className={`leading-6 text-gray-900 text-xl ${darkMode && "text-white"} ${textSize && "text-2xl"}`}
                         >
                             Remove Event
                         </Dialog.Title>
@@ -63,10 +68,10 @@ export default function RemoveEventModal() {
                         <div className="mt-4">
                             <div className='flex flex-col justify-center'>
                                 <button onClick={handleRemove} className='mt-4 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
-                                    Yes, remove event
+                                    Remove Event
                                 </button>
                                 <button onClick={() => setShowRemoveEvent(false)} className='mt-4 py-3 px-8 bg-secondary rounded-xl active:bg-gray-300'>
-                                    No, do not remove
+                                    Cancel
                                 </button>
                             </div>
                         </div>
