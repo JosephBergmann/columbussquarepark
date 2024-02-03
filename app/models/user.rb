@@ -1,8 +1,8 @@
 
 class User < ApplicationRecord
 
-    
-   validates :password, length: {minimum: 6}, allow_nil: true 
+
+   validates :password, length: {minimum: 6}, allow_nil: true
 
 
 
@@ -29,9 +29,10 @@ class User < ApplicationRecord
 
 
     def reset_session_token!
+        debugger
         self.session_token = generate_unique_session_token
         self.save!
-        session_token
+        return session_token
     end
 
 
