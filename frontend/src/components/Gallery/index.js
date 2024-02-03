@@ -33,7 +33,7 @@ export default function Gallery() {
     })
 
     return (
-        <div data-testid='home-1' className='mb-20 flex flex-col gap-14'>
+        <div data-testid='home-1' className='mb-20 flex flex-wrap gap-14'>
             {galleryMap}
         </div>
     )
