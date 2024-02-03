@@ -16,6 +16,7 @@ const ImageCarousel = ({ images }) => {
             navigation={true}
             pagination={{ dynamicBullets: true }}
             style={{ width: '100%', height: '100%' }}
+            className="-z-10"
         >
             {images.map((image, index) => (
                 <SwiperSlide key={index}>

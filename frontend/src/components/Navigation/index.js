@@ -20,16 +20,17 @@ export default function Navigation() {
     return (
         <div className=''>
             {/* Desktop */}
-            <div className={`fixed top-0 hidden md:flex w-full p-8 gap-5 z-10 ${darkMode ? "bg-gray-700/95" : "bg-white/95"}`}>
+            <div className={`fixed top-0 hidden md:flex w-full p-8 gap-4 z-10 ${darkMode ? "bg-gray-700/95" : "bg-white/95"}`}>
                 <img src={logo} className='h-32'/>
 
-                <div className='flex flex-col justify-end w-full gap-5 h-100'>
-                    <div className='flex content-end'>
+                <div className='flex flex-col justify-end w-full gap-4 h-100'>
+                    <div className='flex content-end items-center mr-2'>
                         <div className={`grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl ${darkMode ? "text-white" : null}`}>
                             Columbus Square Park
                         </div>
-                        <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 px-3 ${darkMode ? "text-white hover:bg-slate-500" : null}`}>
-                            <i class="fa-solid fa-universal-access"></i>
+                        <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 ${darkMode ? "text-white hover:bg-slate-500" : null}`}>
+                            {/* <i class="fa-solid fa-universal-access"></i> */}
+                            <i class="fa-solid fa-eye"></i>
                         </button>
                     </div>
                     <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md z-10">
@@ -65,7 +66,7 @@ export default function Navigation() {
 
                 {/* Hamburger Icon - Mobile */}
                 <div className="md:hidden">
-                    <Menu as="div" className="relative inline-block text-left">
+                    <Menu as="div" className="relative inline-block text-left z-50">
                         <div>
                             <Menu.Button onClick={() => setOpenMobileNav(!openMobileNav)} className="bg-primary text-white rounded-lg focus:bg-secondary p-3">
                                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +89,7 @@ export default function Navigation() {
                             leaveFrom="opacity-100 translate-y-0 scale-100"
                             leaveTo="opacity-0 -translate-y-full scale-95"
                         >
-                            <Menu.Items className="fixed top-0 right-0 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
+                            <Menu.Items className="fixed top-28 right-0 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
                                 <div className='flex flex-col'>
                                     <Menu.Item>
                                         <Link to="/" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Home</Link>

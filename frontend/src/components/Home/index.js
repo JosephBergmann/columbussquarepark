@@ -52,7 +52,7 @@ export default function Home() {
                 <div className='hidden md:flex justify-around gap-4 mt-4 mb-8 px-2'>
                     <GalleryPreview />
                 </div>
-                <div className='md:hidden w-full mt-4 mb-8 px-2'>
+                <div className='md:hidden z-0 w-full mt-4 mb-8 px-2'>
                     <ImageCarousel images={images} />
                 </div>
             </div>
