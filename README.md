@@ -28,6 +28,8 @@ Things you may want to cover:
 
 The revitalized Columbus Square Park website is a beacon of modern accessibility and user-friendliness. Crafted with the local community in mind, this platform is your go-to resource for discovering exciting events, learning about the park, and staying informed about the latest park updates. Recognizing the outdated nature of the original site, which contained broken links, outdated information, and lacking accessibility, a team of dedicated software engineers embarked on a mission to transform it. Their goal was twofold: to eliminate the confusion caused by outdated content and to enhance accessibility, ensuring the website serves a diverse range of needs and preferences. The result is a meticulously organized and up-to-date portal, seamlessly integrating features that enhance usability for people from various backgrounds. This commitment to inclusive design is evident throughout the website, making it a welcoming and easy-to-navigate space for all visitors.
 
+## put live link here
+
 ## Table of Contents
 
 * [Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#preview)
@@ -54,8 +56,10 @@ Created using Figma
 <img width="1512" alt="ContactPage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/15b9df91-dd73-45e2-9585-0070f1fc384e">
 
 ## Technology Used
-* <ins>Backend:</ins> Ruby 3.1.1, PostgreSQL 15.1
-* <ins>FrontEnd:</ins> Javascript, Tailwind CSS
+* <ins>Backend:</ins> Ruby 3.1.1, Rails, PostgreSQL 15.1
+* <ins>FrontEnd:</ins> Javascript, React, Redux Toolkit, Tailwind CSS, Headless UI
+* <ins>Third Party APIs:</ins> Leaftlet, Swiper
+* <ins>Future Technology:</ins> Instgram, Facebook Developer Tools, React Calendar 
 
 ## Getting Started
 * Clone this repository: [Columbus Square Park](https://github.com/JosephBergmann/columbussquarepark.git)
@@ -67,10 +71,18 @@ Created using Figma
 ```rails db:seed```
 * Start the server:
 ```rails s```
-* CD into the frontend folder, run the followign command in the terminal:
+* CD into the frontend folder, run the following command in the terminal to install dependencies:
 ```npm i```
 * Start the server in a separate port with the command:
 ```npm start```
+
+## Admin Functionalities
+
+## Future Works
+
+## Acknowledgements
+
+## Team
 
 
 
