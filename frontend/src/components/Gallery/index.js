@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAccessibilitySettings } from '../../context/accessibility';
+import ImageCard from '../ImageCard'
 // import { useNavigation } from '../../context/navigation';
 import { useNavigation } from '../../context/navigation';
 
@@ -24,12 +25,16 @@ export default function Gallery() {
     const subHeaderClass = `text-center ${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"}`
 
     const galleryMap = images.map(image => {
-        
+        return (
+            <div>
+                <ImageCard image={image} />
+            </div>
+        )
     })
 
     return (
         <div data-testid='home-1' className='mb-20 flex flex-col gap-14'>
-
+            {galleryMap}
         </div>
     )
 }
