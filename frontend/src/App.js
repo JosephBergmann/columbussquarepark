@@ -30,7 +30,7 @@ const App = () => {
         <Router>
             <div className={`${darkMode && 'bg-gray-700'}`}>
                 <Navigation />
-                <div className={`flex-grow pt-32 md:pt-48 md:px-32`}>
+                <div className={`flex-grow pt-32 md:pt-48 md:px-40`}>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />

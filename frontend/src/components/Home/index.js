@@ -12,8 +12,8 @@ const imagesContext = require.context('./gallery_images', false, /\.(png|jpg|jpe
 const images = importAll(imagesContext);
 
 export default function Home() {
-    const { accessibilitySettings } = useAccessibilitySettings();
-    const { darkMode, textSize } = accessibilitySettings;
+    const { accessibilitySettings, headerFormat, subheaderFormat, contentFormat } = useAccessibilitySettings();
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
     const { setPage } = useNavigation();
 
     useEffect(() => {
@@ -32,23 +32,23 @@ export default function Home() {
                     <div className={`text-6xl md:text-7xl text-yellow-500 ${darkMode ? "" : ""}`}>
                         <i class="fa-solid fa-lightbulb"></i>
                     </div>
-                    <div className={subHeaderClass} >Learn about the park</div>
+                    <div className={subheaderFormat} >Learn about the park</div>
                 </button>
                 <button onClick={() => navigate("/contact")} className={`flex flex-col justify-center gap-3 items-center rounded-full h-56 w-56 p-6 active:bg-slate-200 ${darkMode ? "text-white bg-slate-500 hover:slate-400" : "bg-secondary/75 hover:bg-secondary"}`}>
                     <div className={`text-6xl md:text-7xl text-yellow-800 ${darkMode ? "" : ""}`}>
                         <i class="fa-solid fa-handshake-angle"></i>
                     </div>
-                    <div className={subHeaderClass} >How to help</div>
+                    <div className={subheaderFormat} >How to help</div>
                 </button>
                 <button onClick={() => navigate("/events")} className={`flex flex-col justify-center gap-3 items-center rounded-full h-56 w-56 p-6 active:bg-slate-200 ${darkMode ? "text-white bg-slate-500 hover:slate-400" : "bg-secondary/75 hover:bg-secondary"}`}>
                     <div className={`text-6xl md:text-7xl text-sky-500 ${darkMode ? "" : ""}`}>
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
-                    <div className={subHeaderClass} >Upcoming Events</div>
+                    <div className={subheaderFormat} >Upcoming Events</div>
                 </button>
             </div>
             <div className='flex flex-col items-center'>
-                <span className={subHeaderClass + "hover:text-underline"} onClick={() => navigate("/gallery")}>View our gallery</span>
+                <span className={subheaderFormat} onClick={() => navigate("/gallery")}>View our gallery</span>
                 <div className='hidden md:flex justify-around gap-4 mt-4 mb-8 px-2'>
                     <GalleryPreview />
                 </div>

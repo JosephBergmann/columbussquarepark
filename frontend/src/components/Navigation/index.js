@@ -12,9 +12,9 @@ export default function Navigation() {
 
     const [openMobileNav, setOpenMobileNav] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
-    const {showAccessibility, setShowAccessibility} = useAccessibilityModal();
+    const { showAccessibility, setShowAccessibility } = useAccessibilityModal();
     const { accessibilitySettings } = useAccessibilitySettings();
-    const { darkMode, textSize } = accessibilitySettings;
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
     const { page, setPage } = useNavigation();
 
     return (
@@ -34,22 +34,22 @@ export default function Navigation() {
                         </button>
                     </div>
                     <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md z-10">
-                        <button onClick={() => navigate("/")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'home' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'home' && 'bg-fun text-white'}`}>
                             Home
                         </button>
-                        <button onClick={() => navigate("/about")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'about' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/about")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'about' && 'bg-fun text-white'}`}>
                             About
                         </button>
-                        <button onClick={() => navigate("/events")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'events' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/events")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'events' && 'bg-fun text-white'}`}>
                             Events
                         </button>
-                        {/* <button onClick={() => {navigate("/programs")ms")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'home' && 'bg-fun text-white'}`}>
+                        {/* <button onClick={() => {navigate("/programs")ms")}} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'home' && 'bg-fun text-white'}`}>
                             Programs
                         </button> */}
-                        <button onClick={() => navigate("/gallery")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'gallery' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/gallery")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'gallery' && 'bg-fun text-white'}`}>
                             Gallery
                         </button>
-                        <button onClick={() => navigate("/contact")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${page === 'contact' && 'bg-fun text-white'}`}>
+                        <button onClick={() => navigate("/contact")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'contact' && 'bg-fun text-white'}`}>
                             Contact
                         </button>
                     </div>
