@@ -33,9 +33,9 @@ export default function Gallery() {
     })
 
     return (
-        <div>
+        <div >
             <h1 className={subHeaderClass}>Gallery</h1>
-            <div data-testid='home-1' className='container mb-20 flex flex-wrap gap-2'>
+            <div data-testid='home-1' className='container mb-20 flex justify-center flex-wrap gap-2'>
             {galleryMap}
             </div>
         </div>
