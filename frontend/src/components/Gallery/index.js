@@ -14,15 +14,15 @@ const images = importAll(imagesContext);
 export default function Gallery() {
     const { accessibilitySettings } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
-    // const { setPage } = useNavigation();
+    const { setPage } = useNavigation();
 
-    // useEffect(() => {
-    //     setPage('home')
-    // }, []);
+    useEffect(() => {
+        setPage('gallery')
+    }, []);
 
     const navigate = useNavigate();
 
-    const subHeaderClass = `text-center ${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"}`
+    const subHeaderClass = `text-left underline underline-offset-8 tracking-widest text-2xl my-8 ${darkMode && "text-white"}`
 
     const galleryMap = images.map(image => {
         return (
@@ -33,8 +33,11 @@ export default function Gallery() {
     })
 
     return (
-        <div data-testid='home-1' className='mb-20 flex flex-wrap gap-14'>
+        <div >
+            <h1 className={subHeaderClass}>Gallery</h1>
+            <div data-testid='home-1' className='container mb-20 flex justify-center flex-wrap gap-2'>
             {galleryMap}
+            </div>
         </div>
     )
 }
