@@ -5,15 +5,14 @@ import ImageCard from '../ImageCard'
 // import { useNavigation } from '../../context/navigation';
 import { useNavigation } from '../../context/navigation';
 
-
 const importAll = (context) => context.keys().map(context);
 
 const imagesContext = require.context('../Home/gallery_images', false, /\.(png|jpg|jpeg|gif|svg)$/);
 const images = importAll(imagesContext);
 
 export default function Gallery() {
-    const { accessibilitySettings } = useAccessibilitySettings();
-    const { darkMode, textSize } = accessibilitySettings;
+    const { accessibilitySettings, headerFormat } = useAccessibilitySettings();
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
     const { setPage } = useNavigation();
 
     useEffect(() => {
@@ -33,10 +32,14 @@ export default function Gallery() {
     })
 
     return (
-        <div >
-            <h1 className={subHeaderClass}>Gallery</h1>
-            <div data-testid='home-1' className='container mb-20 flex justify-center flex-wrap gap-2'>
-            {galleryMap}
+        <div className='flex flex-col my-4 gap-8 w-full px-4'>
+            <h1 className={`${headerFormat} underline ${textSpacing ? "underline-offset-4" : "underline-offset-1"}`}>Gallery</h1>
+            <div data-testid='home-1' className='container mb-20 flex flex-wrap justify-center md:grid md:grid-cols-5 lg:grid-cols-6 gap-2'>
+                {images.map((image) => (
+                    <div className='rounded overflow-hidden'>
+                        <img src={image} className='object-cover min-h-full rounded transition-transform transform-gpu hover:scale-110' />
+                    </div>
+                ))}
             </div>
         </div>
     )

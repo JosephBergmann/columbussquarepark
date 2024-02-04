@@ -6,7 +6,7 @@ import { useAccessibilitySettings } from '../../context/accessibility';
 import { convertToESTFormat, formatDate } from './date_time_helpers.js'
 
 export default function SingleEvent({event}) {
-    const { accessibilitySettings } = useAccessibilitySettings();
+    const { accessibilitySettings, headerFromat, contentFormat } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
 
     const user = useSelector(state => state.session.user)
@@ -26,7 +26,7 @@ export default function SingleEvent({event}) {
 
     const subHeaderClass = 'text-left underline underline-offset-8 xxs:text-md xs:text-lg sm:text-xl md:text-2xl lg:w-3xl xl:4xl my-4'
 
-    const eventTextClass = `lg:w-md xl:md my-2 ${darkMode && "text-white"} ${textSize && "text-lg"}`
+    const eventTextClass = `lg:w-md xl:md my-2 ${contentFormat}`
 
     const formattedDate = formatDate(event.date);
     const formattedTime = convertToESTFormat(event.time);
@@ -43,9 +43,9 @@ export default function SingleEvent({event}) {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6 w-full'>
+        <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6 w-fit md:w-full'>
             <div className={`container rounded-lg border-2 border-gray-300 md:border-2 hover:shadow-lg md:p-2 ${darkMode && "border-none bg-gray-600 hover:bg-gray-500"} flex flex-col flex-grow align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16 overflow-hidden`}>
-                <div className='md:hidden flex flex-col justify-between'>
+                <div className='md:hidden flex flex-col w-full'>
                     <img className="w-full self-center max-w-96 xl:min-w-70 object-cover"
                         src={parkImage}/>
                 </div>
