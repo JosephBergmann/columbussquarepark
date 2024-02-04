@@ -4,6 +4,7 @@ class Api::SessionsController < ApplicationController
 
     def show
         if current_user
+            puts session[:session_token]
             @user = current_user
             render 'api/users/show'
         else
@@ -15,6 +16,7 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(params[:email], params[:password])
         if @user
             login(@user)
+            puts session[:session_token]
             render 'api/users/show'
         else
             render json: {errors: ['wrong email or password']}, status: :unauthorized

@@ -56,8 +56,6 @@ export default function Home() {
                     <ImageCarousel images={images} />
                 </div>
             </div>
-
-            {/* mobile */}
         </div>
     )
 }

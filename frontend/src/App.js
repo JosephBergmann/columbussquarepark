@@ -12,6 +12,7 @@ import { useAccessibilitySettings } from './context/accessibility';
 import Contact from './components/Contact';
 import Events from './components/Events';
 import { fetchAll } from './store/allData';
+import Gallery from './components/Gallery';
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/events" element={<Events />} />
+                        <Route path='/gallery' element={<Gallery />} />
                     {/* Other routes can be added here */}
                     </Routes>
                 </div>
