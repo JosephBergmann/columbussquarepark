@@ -35,7 +35,7 @@ export default function Gallery() {
     return (
         <div className='flex flex-col my-4 gap-8 w-full px-4'>
             <h1 className={`${headerFormat} underline ${textSpacing ? "underline-offset-4" : "underline-offset-1"}`}>Gallery</h1>
-            <div data-testid='home-1' className='container mb-20 flex flex-wrap justify-center md:grid md:grid-cols-5 lg:grid-cols-6 gap-2'>
+            <div data-testid='home-1' className='container mb-20 flex flex-wrap justify-center md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2'>
                 {images.map((image) => (
                     <div className='rounded overflow-hidden'>
                         <img src={image} className='cursor-pointer object-cover min-h-full rounded transition-transform transform-gpu hover:scale-110'
