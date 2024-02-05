@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux'
 import { useAccessibilitySettings } from '../../context/accessibility';
 import { convertToESTFormat, formatDate } from './date_time_helpers.js'
 
-export default function SingleEvent({event}) {
+
+export default function SingleEvent({event, image}) {
     const { accessibilitySettings, headerFormat, contentFormat } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
 
@@ -58,7 +59,7 @@ export default function SingleEvent({event}) {
                 </div>
                 <div className='hidden md:flex flex-col justify-between'>
                     <img className="w-full self-center max-w-96 xl:min-w-70 rounded-sm"
-                        src={parkImage}/>
+                        src={image}/>
                 </div>
             </div>
             {user && <div className="flex flex-row md:flex-col justify-end md:justify-start gap-2 mt-1">

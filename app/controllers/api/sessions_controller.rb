@@ -4,7 +4,6 @@ class Api::SessionsController < ApplicationController
 
     def show
         if current_user
-            puts session[:session_token]
             @user = current_user
             render 'api/users/show'
         else
