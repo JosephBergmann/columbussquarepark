@@ -1,45 +1,29 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* ~~Ruby version~~
-
-* System dependencies
-
-* Configuration
-
-* ~~Database creation~~
-
-* ~~Database initialization~~
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
 # Welcome to Columbus Square Park
 
 The revitalized Columbus Square Park website is a beacon of modern accessibility and user-friendliness. Crafted with the local community in mind, this platform is your go-to resource for discovering exciting events, learning about the park, and staying informed about the latest park updates. Recognizing the outdated nature of the original site, which contained broken links, outdated information, and lacking accessibility, a team of dedicated software engineers embarked on a mission to transform it. Their goal was twofold: to eliminate the confusion caused by outdated content and to enhance accessibility, ensuring the website serves a diverse range of needs and preferences. The result is a meticulously organized and up-to-date portal, seamlessly integrating features that enhance usability for people from various backgrounds. This commitment to inclusive design is evident throughout the website, making it a welcoming and easy-to-navigate space for all visitors.
 
-## put live link here
-
 ## Table of Contents
 
-* [Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#preview)
+* [Live Link](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#live-link)
+* [Desktop Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#desktop-preview)
+* [Mobile Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#mobile-preview)
 * [Database Schema](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#database-schema)
 * [Wireframes](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#wireframes)
 * [Technology Used](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#technology-used)
 * [Getting Started](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#getting-started)
+* [Admin Functionalities](https://github.com/JosephBergmann/columbussquarepark?tab=readme-ov-file#admin-functionalities)
+* [Features Coming Soon](https://github.com/JosephBergmann/columbussquarepark?tab=readme-ov-file#future-works)
+* [Acknowledgements](https://github.com/JosephBergmann/columbussquarepark?tab=readme-ov-file#acknowledgements)
+* [Team](https://github.com/JosephBergmann/columbussquarepark?tab=readme-ov-file#team)
 
-## Preview
+## Live Link
+[Columbus Square Park](https://columbus-square.onrender.com/)
+
+## Desktop Preview
 -Insert preview images
+
+## Mobile Preview
+-Insert mobile images
 
 ## Database Schema
 -Insert Schema
@@ -65,7 +49,7 @@ Created using Figma
 * Clone this repository: [Columbus Square Park](https://github.com/JosephBergmann/columbussquarepark.git)
 * From the root directory, run the following command in the terminal:
 ```bundle install```
-* Once installed create, migrate and seed database using the ruby commands:
+* Once installed create, migrate and seed database using the ruby commands: <br>
 ```rails db:create```
 ```rails db:migrate```
 ```rails db:seed```
@@ -77,13 +61,21 @@ Created using Figma
 ```npm start```
 
 ## Admin Functionalities
+* Create, Read, Update, Delete Events
 
-## Future Works
+## Features Coming Soon
+* Gallery with Instagram API
+* Interactive events calendar 
 
 ## Acknowledgements
+* Columbus Square Park & Shara!
+* a/A for hosting the Accessabiity Winter Hackathon 2024
 
 ## Team
-
+* Josh Goldenberg (Full-Stack): [GitHub](https://github.com/jgoldenberg29), [LinkedIn](https://www.linkedin.com/in/josh-goldenberg-252416a1/) 
+* Josh Pascual (Front-End): [GitHub](https://github.com/joshpas24), [LinkedIn](https://www.linkedin.com/in/josh-pascual/)
+* Joseph Bergmann (Back-End): [GitHub](https://github.com/JosephBergmann), [LinkedIn](https://www.linkedin.com/in/joseph-bergmann-06855a268/)
+* Jennifer Lee (Scrum Master/PM/UXUI): [GitHub](), [LinkedIn](https://www.linkedin.com/in/lee-pac-swe/)
 
 
 
