@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
             login(@user)
             render :show
         end
-
     end
 
     def show
@@ -22,6 +21,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, )
+        params.require(:user).permit(:email, :password)
     end
 end

@@ -1,7 +1,10 @@
 
 class User < ApplicationRecord
 
-   validates :password, length: {minimum: 6}
+
+   validates :password, length: {minimum: 6}, allow_nil: true
+
+
 
    validates :email, uniqueness: true, allow_nil: false, format: {with: URI::MailTo::EMAIL_REGEXP }
    validates :session_token, presence: true, uniqueness: true
@@ -16,6 +19,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    has_many :images
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user&.authenticate(password)
@@ -25,9 +30,10 @@ class User < ApplicationRecord
 
     def reset_session_token!
         self.session_token = generate_unique_session_token
-        self.save
-        session_token
+        self.save!
+        return session_token
     end
+
 
     def ensure_session_token
         self.session_token ||= generate_unique_session_token

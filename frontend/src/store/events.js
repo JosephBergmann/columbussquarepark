@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import { fetchAll } from './allData'
+import csrfFetch from './csrf'
 
 
 export const addEvent = createAsyncThunk(
     'events/add',
     async (event, thunkAPI) => {
-        const res = await fetch("", {
+        const res = await csrfFetch("/api/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -15,6 +17,7 @@ export const addEvent = createAsyncThunk(
         })
         if (res.ok) {
             const data = await res.json()
+            console.log("SECOND!!!")
             return data
         } else {
             const data = await res.json()
@@ -26,8 +29,8 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'events/update',
     async (event, thunkAPI) => {
-        const res = await fetch("", {
-            method: "UPDATE",
+        const res = await csrfFetch(`/api/events/${event.id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -48,8 +51,8 @@ export const updateEvent = createAsyncThunk(
 
 export const removeEvent = createAsyncThunk(
     'events/remove',
-    async (event, thunkAPI) => {
-        const res = await fetch("", {
+    async (eventId, thunkAPI) => {
+        const res = await csrfFetch(`/api/events/${eventId}`, {
             method: "DELETE",
         })
         if (res.ok) {
@@ -64,33 +67,24 @@ export const removeEvent = createAsyncThunk(
 
 const eventSlice = createSlice({
     name: 'events',
-    initialState: {},
+    initialState: {all: {}},
     reducers: {
-        // addEvent: (state, action) => {
-        //     state.events[action.payload.id] = action.payload
-        // },
-        // updateEvent: (state, action) => {
-        //     state.events[action.payload.id] = action.payload
-        // },
-        // removeEvent: (state, action) => {
-        //     delete state.events[action.payload.id]
-        // }
     },
     extraReducers: (builder) => {
-        builder.addCase('allData/getAllData', (state, action) => {
-            state.events = action.payload.events
+        builder.addCase(fetchAll.fulfilled, (state, action) => {
+            state.all = action.payload.events
         });
 
         builder.addCase(addEvent.fulfilled, (state, action) => {
-            state.events[action.payload.id] = action.payload
+            state.all[action.payload.event.id] = action.payload.event
         });
 
         builder.addCase(updateEvent.fulfilled, (state, action) => {
-            state.events[action.payload.id] = action.payload
+            state.all[action.payload.event.id] = action.payload.event
         });
 
         builder.addCase(removeEvent.fulfilled, (state, action) => {
-            delete state.events[action.payload.id]
+            delete state.all[action.payload.id]
         });
     }
 })

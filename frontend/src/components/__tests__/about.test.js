@@ -10,6 +10,5 @@ test('should render about component', () => {
 
 test('matches snapshot', () => {
     const tree = renderer.create(<About />).toJSON();
-    console.log(tree);
     expect(tree).toMatchSnapshot();
 })

@@ -14,12 +14,14 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
+    "react-tooltip": "^5.26.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^3.1.0",
+    "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "BUILD_PATH='../public' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
