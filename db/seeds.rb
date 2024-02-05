@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# User.create!(
-#     email: 'admin@joe.com',
-#     password: 'password'
-# )
+User.create!(
+    email: 'demo@user.io',
+    password: 'password'
+)
 
 # Image.create!(
 #     url:'https://tse1.mm.bing.net/th?id=OIP.0u8ZR7XuEI6R8sco9JLPPwHaEt&pid=Api',
