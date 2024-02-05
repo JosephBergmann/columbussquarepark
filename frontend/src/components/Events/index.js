@@ -11,8 +11,8 @@ import { useNavigation } from '../../context/navigation'
 
 
 export default function Events() {
-    const { accessibilitySettings } = useAccessibilitySettings();
-    const { darkMode, textSize } = accessibilitySettings;
+    const { accessibilitySettings, headerFormat } = useAccessibilitySettings();
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
     const { setPage } = useNavigation();
 
     useEffect(() => {
@@ -45,17 +45,17 @@ export default function Events() {
     })
 
     return (
-        <div className="flex justify-center px-4 mb-20">
-            <div>
+        <div className="mt-6 px-4 mb-20">
+            <div className='flex flex-col w-full my-4'>
                 <div className="flex justify-between gap-8">
-                    <h2 className={subHeaderClass} >Upcoming Events</h2>
+                    <h2 className={`${headerFormat} underline ${textSpacing ? "underline-offset-4" : "underlin-offset-1"} pb-4`} >Upcoming Events</h2>
                     {user && <button
                                 onClick={() => setShowEventForm(true)}
                                 className="self-center py-1 px-2 md:px-4 bg-fun text-white rounded-xl border border-fun active:bg-secondary active:border active:border-white">
                                 Add Event
                             </button>}
                 </div>
-                <div>
+                <div className='flex flex-col items-center md:items-stretch md:w-full'>
                     {eventsMap}
                 </div>
             </div>
