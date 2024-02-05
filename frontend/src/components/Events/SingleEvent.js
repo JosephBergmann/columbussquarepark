@@ -6,7 +6,7 @@ import { useAccessibilitySettings } from '../../context/accessibility';
 import { convertToESTFormat, formatDate } from './date_time_helpers.js'
 
 export default function SingleEvent({event}) {
-    const { accessibilitySettings, headerFromat, contentFormat } = useAccessibilitySettings();
+    const { accessibilitySettings, headerFormat, contentFormat } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
 
     const user = useSelector(state => state.session.user)
@@ -50,7 +50,7 @@ export default function SingleEvent({event}) {
                         src={parkImage}/>
                 </div>
                 <div className="w-11/12 p-4 md:p-2 md:ml-1 pt-4 md:mt-0 md:mr-4">
-                    <p className={`font-bold text-2xl ${textSize && "text-3xl"} ${darkMode && "text-white"}`}> {event.name}</p>
+                    <p className={`font-bold text-2xl ${headerFormat}`}> {event.name}</p>
                     <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate}</p>
                     <p className={eventTextClass}><span className="font-bold">time: </span>{formattedTime}</p>
                     <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>

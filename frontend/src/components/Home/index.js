@@ -9,7 +9,8 @@ import ImageCarousel from '../Carousel';
 const importAll = (context) => context.keys().map(context);
 
 const imagesContext = require.context('./gallery_images', false, /\.(png|jpg|jpeg|gif|svg)$/);
-const images = importAll(imagesContext);
+const imagesArr = importAll(imagesContext);
+const images = imagesArr.reverse();
 
 export default function Home() {
     const { accessibilitySettings, headerFormat, subheaderFormat, contentFormat } = useAccessibilitySettings();

@@ -8,7 +8,8 @@ import { useNavigation } from '../../context/navigation';
 const importAll = (context) => context.keys().map(context);
 
 const imagesContext = require.context('../Home/gallery_images', false, /\.(png|jpg|jpeg|gif|svg)$/);
-const images = importAll(imagesContext);
+const imagesArr = importAll(imagesContext);
+const images = imagesArr.reverse();
 
 export default function Gallery() {
     const { accessibilitySettings, headerFormat } = useAccessibilitySettings();
@@ -37,7 +38,9 @@ export default function Gallery() {
             <div data-testid='home-1' className='container mb-20 flex flex-wrap justify-center md:grid md:grid-cols-5 lg:grid-cols-6 gap-2'>
                 {images.map((image) => (
                     <div className='rounded overflow-hidden'>
-                        <img src={image} className='object-cover min-h-full rounded transition-transform transform-gpu hover:scale-110' />
+                        <img src={image} className='cursor-pointer object-cover min-h-full rounded transition-transform transform-gpu hover:scale-110'
+                            onClick={() => {}}
+                        />
                     </div>
                 ))}
             </div>

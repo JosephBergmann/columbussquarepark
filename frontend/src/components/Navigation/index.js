@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import MobileLogo from './mobile-logo';
@@ -6,16 +6,30 @@ import logo from './csp-logo.gif';
 import { useAccessibilityModal, useAccessibilitySettings } from '../../context/accessibility';
 import { useNavigation } from '../../context/navigation';
 import AccessibilityModal from '../AccessibilityModal';
+import { Tooltip, TooltipRefProps } from 'react-tooltip';
+
 
 export default function Navigation() {
     const navigate = useNavigate();
 
     const [openMobileNav, setOpenMobileNav] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(true);
     const { showAccessibility, setShowAccessibility } = useAccessibilityModal();
-    const { accessibilitySettings } = useAccessibilitySettings();
+    const { accessibilitySettings, contentFormat } = useAccessibilitySettings();
     const { darkMode, textSize, textSpacing } = accessibilitySettings;
     const { page, setPage } = useNavigation();
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowTooltip(false)
+        }, 8000)
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [])
 
     return (
         <div className=''>
@@ -28,10 +42,11 @@ export default function Navigation() {
                         <div className={`grow text-center font-newspaper font-bold md:text-4xl lg:text-5xl ${darkMode ? "text-white" : null}`}>
                             Columbus Square Park
                         </div>
-                        <button onClick={() => setShowAccessibility(true)} className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 ${darkMode ? "text-white hover:bg-slate-500" : null}`}>
+                        <button onClick={() => setShowAccessibility(true)} id="nav-tooltip" className={`grow-0 text-end text-3xl rounded-full hover:bg-slate-300 p-2 ${darkMode ? "text-white hover:bg-slate-500" : null}`}>
                             {/* <i class="fa-solid fa-universal-access"></i> */}
                             <i class="fa-solid fa-eye"></i>
                         </button>
+                        <Tooltip anchorSelect='#nav-tooltip' content='Personalize your experience here!' place='bottom-end' className={`z-20 ${contentFormat} ${darkMode ? "bg-slate-200" : null}`} isOpen={showTooltip}/>
                     </div>
                     <div className="flex justify-evenly content-center w-full space-x-4 bg-primary p-1 rounded-md z-10">
                         <button onClick={() => navigate("/")} className={`grow m-0 text-center hover:bg-secondary rounded-md p-2 ${textSize && "text-lg"} ${textSpacing ? "tracking-wider" : null} ${page === 'home' && 'bg-fun text-white'}`}>
@@ -59,14 +74,14 @@ export default function Navigation() {
             </div>
 
             {/* Mobile */}
-            <div className="md:hidden container fixed top-0 flex justify-between items-center bg-primary w-screen p-4">
+            <div className="md:hidden container fixed top-0 flex justify-between items-center bg-primary w-screen p-4 overflow-hidden z-50">
                 <Link to="/" className="md:hidden text-white text-lg font-bold min-h-min">
                     <MobileLogo />
                 </Link>
 
                 {/* Hamburger Icon - Mobile */}
-                <div className="md:hidden">
-                    <Menu as="div" className="relative inline-block text-left z-50">
+                <div className="md:hidden z-50" id="nav-tooltip-mobile">
+                    <Menu as="div" className="relative inline-block text-left">
                         <div>
                             <Menu.Button onClick={() => setOpenMobileNav(!openMobileNav)} className="bg-primary text-white rounded-lg focus:bg-secondary p-3">
                                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +104,7 @@ export default function Navigation() {
                             leaveFrom="opacity-100 translate-y-0 scale-100"
                             leaveTo="opacity-0 -translate-y-full scale-95"
                         >
-                            <Menu.Items className="fixed top-28 right-0 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 ">
+                            <Menu.Items className="fixed top-28 right-0 w-screen origin-top divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5">
                                 <div className='flex flex-col'>
                                     <Menu.Item>
                                         <Link to="/" className="py-3 text-center focus:bg-slate-200 border-b border-slate-200">Home</Link>
@@ -116,6 +131,7 @@ export default function Navigation() {
                         </Transition>
                     </Menu>
                 </div>
+                <Tooltip anchorSelect='#nav-tooltip-mobile' content='Click here to view more!' place='bottom-end' className={`z-20 ${contentFormat}`} isOpen={showTooltip}/>
             </div>
         </div>
     )
