@@ -23,6 +23,7 @@ The revitalized Columbus Square Park website is a beacon of modern accessibility
 ## Desktop Preview
 <img width="1501" alt="homepage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/2fa8864a-9bdb-4552-a0fb-4486ed49d107">
 <img width="1497" alt="about" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/2b33e56a-f245-4d92-a744-3608195ca455">
+<img width="1512" alt="events" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/e72af627-59e4-4a87-8c18-bf96019352de">
 <img width="1506" alt="gallery" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/bca5f214-d8e2-48e5-acde-c609990f0fa7">
 <img width="1502" alt="contact" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/1291c186-fae1-4551-b0e9-e3f7d44d78dd">
 
