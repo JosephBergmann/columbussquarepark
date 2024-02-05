@@ -1,10 +1,9 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
     include ActionController::RequestForgeryProtection
 
-    skip_before_action :verify_authenticity_token
-    protect_from_forgery if: false, with: :reset_session
     rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_authenticity_token
+    protect_from_forgery with: :exception
 
     before_action :snake_case_params
     before_action :attach_authenticity_token
@@ -50,8 +49,11 @@ class ApplicationController < ActionController::Base
     end
 
     def invalid_authenticity_token
-        render json: {message: 'Invalid authenticity token'}, status: :unprocessable_entity
+        debugger
+        render json: { message: 'Invalid authenticity token' }, 
+          status: :unprocessable_entity
     end
+    
 
     def unhandled_error(error)
         if request.accepts.first.html?
