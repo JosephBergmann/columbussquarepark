@@ -45,7 +45,6 @@ export default function Events() {
             return Math.floor(Math.random() * max);
           }
         const image = images[getRandomInt(45)]
-        console.log("🚀 ~ eventsMap ~ image:", image)
 
         return (
             <>

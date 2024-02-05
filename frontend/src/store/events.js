@@ -17,7 +17,6 @@ export const addEvent = createAsyncThunk(
         })
         if (res.ok) {
             const data = await res.json()
-            console.log("SECOND!!!")
             return data
         } else {
             const data = await res.json()
