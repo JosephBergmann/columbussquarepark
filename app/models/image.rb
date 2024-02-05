@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-    validates :url, unique: true
+    # validates :url, uniqueness: true
 
-    belongs_to :poster
+    # belongs_to :poster
 end
