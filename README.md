@@ -7,6 +7,7 @@ The revitalized Columbus Square Park website is a beacon of modern accessibility
 * [Live Link](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#live-link)
 * [Desktop Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#desktop-preview)
 * [Mobile Preview](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#mobile-preview)
+* [Accessability Higlights](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#accessability-highlights)
 * [Database Schema](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#database-schema)
 * [Wireframes](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#wireframes)
 * [Technology Used](https://github.com/JosephBergmann/columbussquarepark/blob/main/README.md#technology-used)
@@ -20,13 +21,29 @@ The revitalized Columbus Square Park website is a beacon of modern accessibility
 [Columbus Square Park](https://columbus-square.onrender.com/)
 
 ## Desktop Preview
--Insert preview images
+<img width="1501" alt="homepage" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/2fa8864a-9bdb-4552-a0fb-4486ed49d107">
+<img width="1497" alt="about" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/2b33e56a-f245-4d92-a744-3608195ca455">
+<img width="1506" alt="gallery" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/bca5f214-d8e2-48e5-acde-c609990f0fa7">
+<img width="1502" alt="contact" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/1291c186-fae1-4551-b0e9-e3f7d44d78dd">
+
 
 ## Mobile Preview
--Insert mobile images
+<img width="330" alt="homepagemobile" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/0c11c2b4-34e9-40fc-b442-fb19f213cbdd">
+<img width="334" alt="homepage2mobile" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/46eefbc7-68e8-4a0a-b67c-19ec8f35be3e">
+<img width="333" alt="aboutmobile" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/3a50c0cf-0f59-4d12-ae0f-2e5e049a4617">
+<img width="333" alt="dropdownmobile" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/58294af0-5fe4-450d-a185-603e2d77711a">
+<img width="332" alt="gallerymobile" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/de854fda-7988-4a0e-b612-46a9c1fd5354">
+
+
+## Accessability Highlights
+<img width="1500" alt="notice" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/75421058-4b75-4a6c-9578-e635e41ea7b7">
+<img width="1506" alt="lightmode" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/38c4bdc5-d481-41df-a8f6-bebf851902e8">
+<img width="1508" alt="darkmode" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/5ad3bddd-16cb-43ef-a2dd-21c49893d950">
+
 
 ## Database Schema
--Insert Schema
+<img width="1155" alt="Screenshot 2024-02-04 at 6 24 22 PM" src="https://github.com/JosephBergmann/columbussquarepark/assets/108435185/98dc4bd8-6b6a-414a-aaa8-ad890e71f180">
+
 
 ## Wireframes
 Created using Figma
