@@ -11,6 +11,7 @@ export function AccessibilityProvider({children}) {
     const [accessibilitySettings, setAccessibilitySettings] = useState({
         darkMode: false,
         textSize: false,
+        textSpacing: false,
     });
 
     useEffect(() => {
@@ -18,15 +19,21 @@ export function AccessibilityProvider({children}) {
         if (savedSettings) {
             setAccessibilitySettings(JSON.parse(savedSettings))
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('csp-accessibility', JSON.stringify(accessibilitySettings))
-    }, [accessibilitySettings])
+    }, [accessibilitySettings]);
+
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
+
+    const headerFormat = `${textSize ? "text-3xl" : "text-2xl"} ${darkMode ? "text-white" : null} ${textSpacing ? "tracking-wider" : null}`
+    const subheaderFormat = `${textSize ? "text-2xl" : "text-xl"} ${darkMode ? "text-white" : null} ${textSpacing ? "tracking-wide" : null}`
+    const contentFormat = `${textSize ? "text-lg" : null} ${darkMode ? "text-white" : null} ${textSpacing ? "tracking-wide" : null}`
 
     return (
         <AccessibilityModalContext.Provider value={{ showAccessibility, setShowAccessibility }}>
-            <AccessiblitySettingsContext.Provider value={{ accessibilitySettings, setAccessibilitySettings }}>
+            <AccessiblitySettingsContext.Provider value={{ accessibilitySettings, setAccessibilitySettings, headerFormat, subheaderFormat, contentFormat }}>
                 {children}
             </AccessiblitySettingsContext.Provider>
         </AccessibilityModalContext.Provider>

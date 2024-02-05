@@ -10,8 +10,8 @@ import cspMap from './csp-map.jpg';
 // aboutView = ['doge', 'garden', 'art']
 
 export default function About() {
-    const { accessibilitySettings } = useAccessibilitySettings();
-    const { darkMode, textSize } = accessibilitySettings;
+    const { accessibilitySettings, headerFormat, subheaderFormat, contentFormat } = useAccessibilitySettings();
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
     const { setPage } = useNavigation();
 
     const [aboutView, setAboutView] = useState('map')
@@ -23,10 +23,10 @@ export default function About() {
     return (
         <div className="mt-6 mb-20 px-4">
             <div className="my-4 mb-10">
-                <h1 className={`${darkMode && "text-white"} ${textSize ? "text-3xl" : "text-2xl"} leading-6 pb-4`}>About</h1>
-                <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
-                <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Columbus Square provides a diverse array of amenities for both residents and visitors. Whether you're a dog lover, a parent with young children, a sports enthusiast, or simply someone who appreciates a moment of tranquility, Columbus Square caters to all. Explore our rose garden and meandering nature walk that encircles the park, offering a delightful experience for nature enthusiasts. Serving as an oasis from the urban hustle and bustle, Columbus Square is a dynamic community space that continues to evolve.</p>
-                <p className={`${darkMode && "text-white"} ${textSize ? "text-lg" : null} mt-4`}>Come experience Columbus Square for yourself. Volunteer and GET ENGAGED!</p>
+                <h1 className={`${headerFormat} leading-6 pb-4 underline ${textSpacing ? "underline-offset-4" : "underline-offset-1"}`}>About</h1>
+                <p className={`${contentFormat} mt-4`}>Columbus Square Park is a vibrant community gathering place located between 12th and 13th Streets and Wharton and Reed streets in the Passyunk Square neighborhood in South Philadelphia.</p>
+                <p className={`${contentFormat} mt-4`}>Columbus Square provides a diverse array of amenities for both residents and visitors. Whether you're a dog lover, a parent with young children, a sports enthusiast, or simply someone who appreciates a moment of tranquility, Columbus Square caters to all. Explore our rose garden and meandering nature walk that encircles the park, offering a delightful experience for nature enthusiasts. Serving as an oasis from the urban hustle and bustle, Columbus Square is a dynamic community space that continues to evolve.</p>
+                <p className={`${contentFormat} mt-4`}>Come experience Columbus Square for yourself. Volunteer and GET ENGAGED!</p>
             </div>
             <div>
                 <Tab.Group>
@@ -34,7 +34,7 @@ export default function About() {
                      <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"} ${textSpacing && "tracking-wider"}`}
                                         onClick={() => setAboutView('map')}
                                     >
                                         Map
@@ -44,7 +44,7 @@ export default function About() {
                         <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"} ${textSpacing && "tracking-wider"}`}
                                         onClick={() => setAboutView('dog')}
                                     >
                                         Dog Park Rules
@@ -54,7 +54,7 @@ export default function About() {
                         <Tab as={Fragment}>
                             {({ selected}) => (
                                     <button
-                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"}`}
+                                        className={`md:px-4 py-2 m-1 rounded-lg text-lg ${selected ? 'bg-fun text-white' : 'bg-primary hover:bg-secondary'} ${textSize && "text-xl"} ${textSpacing && "tracking-wider"}`}
                                         onClick={() => setAboutView('garden')}
                                     >
                                         Garden Policy

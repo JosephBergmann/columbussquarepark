@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux'
 import { useAccessibilitySettings } from '../../context/accessibility';
 import { convertToESTFormat, formatDate } from './date_time_helpers.js'
 
+
 export default function SingleEvent({event, image}) {
-    const { accessibilitySettings } = useAccessibilitySettings();
+    const { accessibilitySettings, headerFormat, contentFormat } = useAccessibilitySettings();
     const { darkMode, textSize } = accessibilitySettings;
 
     const user = useSelector(state => state.session.user)
@@ -26,7 +27,7 @@ export default function SingleEvent({event, image}) {
 
     const subHeaderClass = 'text-left underline underline-offset-8 xxs:text-md xs:text-lg sm:text-xl md:text-2xl lg:w-3xl xl:4xl my-4'
 
-    const eventTextClass = `lg:w-md xl:md my-2 ${darkMode && "text-white"} ${textSize && "text-lg"}`
+    const eventTextClass = `lg:w-md xl:md my-2 ${contentFormat}`
 
     const formattedDate = formatDate(event.date);
     const formattedTime = convertToESTFormat(event.time);
@@ -43,14 +44,14 @@ export default function SingleEvent({event, image}) {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6 w-full'>
+        <div className='flex flex-col md:flex-row gap-2 md:gap-3 mb-6 w-fit md:w-full'>
             <div className={`container rounded-lg border-2 border-gray-300 md:border-2 hover:shadow-lg md:p-2 ${darkMode && "border-none bg-gray-600 hover:bg-gray-500"} flex flex-col flex-grow align-center md:flex-row  md:justify-around lg:gap-8 xl:gap-16 overflow-hidden`}>
-                <div className='md:hidden flex flex-col justify-between'>
+                <div className='md:hidden flex flex-col w-full'>
                     <img className="w-full self-center max-w-96 xl:min-w-70 object-cover"
                         src={parkImage}/>
                 </div>
                 <div className="w-11/12 p-4 md:p-2 md:ml-1 pt-4 md:mt-0 md:mr-4">
-                    <p className={`font-bold text-2xl ${textSize && "text-3xl"} ${darkMode && "text-white"}`}> {event.name}</p>
+                    <p className={`font-bold text-2xl ${headerFormat}`}> {event.name}</p>
                     <p className={eventTextClass}><span className="font-bold">date: </span>{formattedDate}</p>
                     <p className={eventTextClass}><span className="font-bold">time: </span>{formattedTime}</p>
                     <p className={eventTextClass}><span className="font-bold">location: </span>{event.location}</p>

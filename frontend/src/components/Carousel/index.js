@@ -16,10 +16,11 @@ const ImageCarousel = ({ images }) => {
             navigation={true}
             pagination={{ dynamicBullets: true }}
             style={{ width: '100%', height: '100%' }}
+            className="-z-10"
         >
             {images.map((image, index) => (
-                <SwiperSlide key={index}>
-                    <img src={image} style={{ width: '100%', height: '90%', objectFit: 'cover' }} />
+                <SwiperSlide key={index} className="overflow-hidden">
+                    <img src={image} className="object-cover min-h-full" />
                 </SwiperSlide>
             ))}
         </Swiper>

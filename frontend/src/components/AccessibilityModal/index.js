@@ -5,14 +5,8 @@ import { useAccessibilityModal, useAccessibilitySettings } from '../../context/a
 
 export default function AccessibilityModal() {
     const { showAccessibility, setShowAccessibility } = useAccessibilityModal();
-    const { accessibilitySettings, setAccessibilitySettings } = useAccessibilitySettings();
-    const { darkMode, textSize } = accessibilitySettings;
-
-    const confirmSettings = (darkMode, textSize) => {
-        // setAccessibilitySettings({ 'darkMode': darkMode, 'textSize': textSize});
-        setShowAccessibility(false);
-        return;
-    }
+    const { accessibilitySettings, setAccessibilitySettings, headerFormat, subheaderFormat, contentFormat } = useAccessibilitySettings();
+    const { darkMode, textSize, textSpacing } = accessibilitySettings;
 
     const updateDarkMode = () => {
         setAccessibilitySettings({ ...accessibilitySettings, 'darkMode': !accessibilitySettings.darkMode })
@@ -20,6 +14,10 @@ export default function AccessibilityModal() {
 
     const updateTextSize = (bool) => {
         setAccessibilitySettings({ ...accessibilitySettings, 'textSize': bool })
+    }
+
+    const updateTextSpacing = (bool) => {
+        setAccessibilitySettings({ ...accessibilitySettings, 'textSpacing': bool})
     }
 
     return (
@@ -50,18 +48,18 @@ export default function AccessibilityModal() {
                         <Dialog.Panel className={`w-full max-w-md transform overflow-hidden rounded-2xl ${darkMode ? "bg-gray-700" : "bg-white"} p-6 text-left align-middle shadow-xl transition-all`}>
                             <Dialog.Title
                                 as="h1"
-                                className={`${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"} leading-6 text-gray-900`}
+                                className={`${darkMode ? "text-white" : null} ${textSize ? "text-2xl" : "text-xl"} ${textSpacing ? "tracking-wider" : null} leading-6 text-gray-900`}
                             >
                                 Accessibility
                             </Dialog.Title>
                             <div className="mt-2">
-                                <p className={`${textSize ? "text-base pt-2" : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
+                                <p className={`${textSize ? "text-base pt-2" : "text-sm"} ${darkMode ? "text-gray-400" : "text-gray-500"} ${textSpacing ? "tracking-wider" : null}`}>
                                     Customize your experience tailored to your preferences.
                                 </p>
                             </div>
                             <div className='py-1 w-full'>
                                 <div className='grid grid-cols-2 items-center mt-6'>
-                                    <div className={`${darkMode ? "text-white" : null} ${textSize ? "text-lg" : "text-base"}`}>Dark Mode</div>
+                                    <div className={contentFormat}>Dark Mode</div>
                                     <Switch
                                         checked={darkMode}
                                         onChange={() => updateDarkMode()}
@@ -78,7 +76,7 @@ export default function AccessibilityModal() {
                                     </Switch>
                                 </div>
                                 <div className='grid grid-cols-2 items-center mt-6'>
-                                    <div className={`${darkMode ? "text-white" : null} ${textSize ? "text-lg" : "text-base"}`}>Text Size</div>
+                                    <div className={contentFormat}>Text Size</div>
                                     <div>
                                         <Tab.Group>
                                             <Tab.List className="grid grid-cols-2 bg-gray-200 rounded-xl">
@@ -101,28 +99,34 @@ export default function AccessibilityModal() {
                                             </Tab.List>
                                         </Tab.Group>
                                     </div>
-                                    {/* <div className='my-3'>
-                                        <div className='grid grid-cols-2 items-center'>
-                                            <div className='ml-5'>Normal</div>
-                                            <Switch
-                                                checked={darkMode}
-                                                onChange={() => setDarkMode(!darkMode)}
-                                                className={`${
-                                                    darkMode ? 'bg-main' : 'bg-gray-300'
-                                                } relative inline-flex h-6 w-10 items-center rounded-full`}
-                                                >
-                                                <span className="sr-only">Enable notifications</span>
-                                                <span
-                                                    className={`${
-                                                    darkMode ? 'translate-x-5' : 'translate-x-1'
-                                                    } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-                                                />
-                                            </Switch>
-                                        </div>
-                                    </div> */}
+                                </div>
+                                <div className='grid grid-cols-2 items-center mt-6'>
+                                    <div className={contentFormat}>Text Spacing</div>
+                                    <div>
+                                        <Tab.Group>
+                                            <Tab.List className="grid grid-cols-2 bg-gray-200 rounded-xl">
+                                                <Tab as={Fragment}>
+                                                    <button
+                                                        className={`md:px-4 py-2 m-1 rounded-lg ${!textSpacing ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                                        onClick={() => updateTextSpacing(false)}
+                                                    >
+                                                        Normal
+                                                    </button>
+                                                </Tab>
+                                                <Tab as={Fragment}>
+                                                    <button
+                                                        className={`md:px-4 py-2 m-1 rounded-lg tracking-wider ${textSpacing ? 'bg-fun' : 'bg-gray-200 hover:bg-gray-300'}`}
+                                                        onClick={() => updateTextSpacing(true)}
+                                                    >
+                                                        Wide
+                                                    </button>
+                                                </Tab>
+                                            </Tab.List>
+                                        </Tab.Group>
+                                    </div>
                                 </div>
                                 <div className='w-full flex justify-center'>
-                                    <button onClick={(darkMode, textSize) => confirmSettings(darkMode, textSize)} className={`mt-10 py-3 px-8 bg-fun rounded-xl active:bg-gray-300 ${textSize ? 'text-lg' : null}`}>
+                                    <button onClick={() => setShowAccessibility(false)} className={`mt-10 py-3 px-8 bg-fun rounded-xl active:bg-gray-300 ${textSize ? 'text-lg' : null}`}>
                                         Confirm
                                     </button>
                                 </div>
