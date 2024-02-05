@@ -31,15 +31,25 @@ export default function Events() {
         setIsUpdateEventForm
     } = useEventForm()
 
+    const importAll = (context) => context.keys().map(context);
+    const imagesContext = require.context('../Home/gallery_images', false, /\.(png|jpg|jpeg|gif|svg)$/);
+    const images = importAll(imagesContext);
+
     const subHeaderClass = `text-left underline underline-offset-8 tracking-widest text-2xl my-8 ${darkMode && "text-white"}`
     const eventsArray = Object.values(events)
     if (!eventsArray.length) {
         return null
     }
     const eventsMap = eventsArray.map(event => {
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+          }
+        const image = images[getRandomInt(45)]
+        console.log("🚀 ~ eventsMap ~ image:", image)
+
         return (
             <>
-                <SingleEvent event={event} />
+                <SingleEvent event={event} image={image}/>
             </>
         )
     })
